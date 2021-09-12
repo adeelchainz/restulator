@@ -1,0 +1,176 @@
+<%- include('header',{role:role}); %>
+<div class="col-sm-10 " style=" margin-top: 10px; ">
+
+        <div class="container">
+                <div id="CategAddModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                                <!-- <h3 id="modalTitle"> </h3> -->
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        </div>
+                                        <div class="modal-body" id="modalBody">
+                                           <div class="container">
+                                                   <form id="AddCategForm">
+                                                   <div class="form-group row">
+                                                        <div class="col-sm-4">
+                                                                <label for="exampleFormControlInput1">Enter Category Name </label>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                                <input type="text" class="form-control" name="categName" id="categName" pattern="[a-zA-Z0-9]+" placeholder="E.g Fruits" >
+                                                        </div>
+
+
+                                                   </div>
+                                                   <div class=" form-group row">
+                                                        <button class="btn btn-success" id="categAddButton"  type="button">Add Category</button>
+
+                                                   </div>
+                                                        <div id= "modal-alert-success" class="alert alert-success alert-dismissible" style="display: none;" >
+                                                                                        
+                                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                                <strong>Category Successfully Added!</strong>
+                                                        </div>
+                                                        <div id= "modal-alert-danger" class="alert alert-danger alert-dismissible">
+                                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                                <strong>Category could not be added, Check your connection and try again!</strong>
+                                                        </div>                                                                     
+                                                </form>
+                                           </div>     
+
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                        </div>
+                                      
+                                        </div>
+                                </div>
+                </div>                
+
+        
+        <form id="itemAddForm" method="POST" enctype="multipart/form-data">
+
+                
+
+                <div class="form-group row">
+
+                        <div class="col-sm-2">
+                        <label for="exampleFormControlInput1">Enter Item Name </label>
+                        </div>
+                        <div class="col-sm">
+                        <input type="text" class="form-control" name="itemName" id="itemName" pattern="[a-zA-Z0-9_ ]+" placeholder="E.g Bread" required>
+                         </div>
+                </div>
+                <div class="form-group row">
+                        <div class="col-sm-2">
+                        <label for="exampleFormControlInput1">Enter Quantity</label>
+                        </div>
+
+                        <div class="col-sm">
+                        <input type="number" class="form-buttoncontrol" name="itemQuantity" min="0" id="itemQuantity" placeholder= "E.g 5">
+                        </div>
+                </div>
+                <div class="form-group row">
+
+                                <div class="col-sm-2">
+                                <label for="exampleFormControlInput1">Enter Item Unit </label>
+                                </div>
+                                <div class="col-sm-6">
+                                <input type="text" class="form-control" name="itemUnit" id="itemUnit" pattern="[a-zA-Z0-9]+"  placeholder="E.g Kg" required>
+                                 </div>
+                        </div>                
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                    <label for="exampleFormControlInput1">Enter Item Description</label>
+                    </div>
+
+                    <div class="col-sm">
+                        <input type="text" class="form-control" name="itemDescrip" id="itemDescrip" placeholder="E.g " >
+                    </div>
+                </div> 
+                <div class="form-group row">
+
+                                <div class="col-sm-2">
+                                        <label for="exampleFormControlInput1">Choose Item Image</label>
+                                </div>
+
+                                <div class="col-sm">
+                                        <input id="image" type="file" accept="image/x-png,image/gif,image/jpeg" name="image" >
+
+                                </div>
+                                                                                
+                                
+
+                        </div>                                        
+                <div class="form-group row">
+
+                <div class="col-sm-2">
+                        <label for="exampleFormControlInput1">Choose Item Category</label>
+                </div>
+
+                <div class="col-sm-4">
+                                <select id="selectlist" class="form-control" >
+                                        <option value="" disabled selected>Choose your option</option>
+
+                                </select>
+                </div>
+                <div class="col-sm-1">
+                        <button id="ItemCategAdd" class="btn btn-danger " data-toggle="modal" data-target="#CategAddModal"><i class="fa fa-plus"></i></button>
+                </div>
+                </div>
+
+
+                <div class="form-group row">
+                        <div class="col-sm offset-sm-2">
+                        <button  id="itemAddBtn"  type="submit" class="btn btn-success" formmethod="POST"  >Add Item</button>
+                        </div>
+                </div>
+
+                
+                <div id= "alert-success" class="alert alert-success alert-dismissible" style="display: none;">
+                                                    
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Item Successfully Added!</strong>
+                </div>
+                <div id= "alert-danger" class="alert alert-danger alert-dismissible"  style="display: none;">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Item could not be added, Check your connection and try again!</strong>
+                </div>
+                <!-- <div id= "modal-alert-success" class="alert alert-success alert-dismissible" >
+                                                    
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Category Successfully Added!</strong>
+                </div>
+                <div id= "modal-alert-danger" class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Category could not be added, Check your connection and try again!</strong>
+                </div>                   -->
+
+
+
+        </form>
+
+
+        </div>
+
+        
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+<script src="/js/addItem.js"></script>
+<%- include('footer'); %>

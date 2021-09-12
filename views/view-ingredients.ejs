@@ -1,0 +1,202 @@
+<%- include('header'); %>
+<div class="col-sm-10" style="  margin-top: 10px; ">
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="modal-title">
+             </h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body" id="modal-body">
+          </div>
+       </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade modalEditClass" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">DELETE Ingredient</h4>
+          <button type="button" id="close-delete" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+<div class="modal-body mx-3 modal-inputs">
+
+    <form id="del-ing-form" method="DELETE">
+           
+                    <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="formNameEdit15">Are you sure to delete this Ingredient?</label>
+                          </div>      
+        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+          <button id="del-ing" formmethod="DELETE" type="button" class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">DELETE Ingredient
+
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+            </div>
+    </form>            
+</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade modalEditClass" id="editModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Edit Ingredient</h4>
+          <button type="button" id="close-edit" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+<div class="modal-body mx-3 modal-inputs">
+
+    <form id="edit-ing-form" method="PUT">
+
+                    <div class="md-form mb-5">
+                          <label data-error="wrong" data-success="right" for="formNameEdit15">Ingredient Name</label>     
+                          <input type="text" id="ing-name" class="form-control validate" readonly>
+                           
+                          </div>
+
+                            <div class="md-form mb-5">
+                              <label data-error="wrong" data-success="right" for="formNameEdit15">Unit</label>      
+                              <input type="text" id="ing-unit" class="form-control validate" readonly>
+                                    
+                            </div>
+                    <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="formNameEdit15">Quantity</label>
+                            <input type="number" name="quantity" id="ing-quantity" class="form-control validate" required>
+                            
+                          </div>
+
+        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+          <button id="edit-ing"  type="button" class="btn btn-outline-secondary btn-block editInside">Edit Ingredient
+
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+            </div>
+    </form>            
+</div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade modalEditClass" id="ingredientsModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">ADD Ingredient</h4>
+              <button type="button" id="close-ingredient" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+    <div class="modal-body mx-3 modal-inputs">
+    
+      <div class="modal-body">
+        <form id="addIngredientForm">
+                <div class="col-sm-10">
+                        <label for="exampleFormControlInput1">Choose Ingredient Type</label>
+                        </div>
+    
+                <div class="md-form mb-5">
+                                        
+                        <select id="ingType" name="ingType" class="form-control">
+                                <option value="" disabled selected>Choose your option</option>
+                                                                
+                        </select>
+                </div>
+                        <div class="col-sm-10">
+                                <label for="exampleFormControlInput1">Choose Ingredient</label>
+                                </div>
+    
+                        <div class="md-form mb-5">
+                                                
+                                <select id="selectIng" name="selectIng" class="form-control">
+                                        <option value="" disabled selected>Choose your option</option>
+                                                                        
+                                </select>
+                        </div>
+    
+                        <div class="md-form mb-5">
+                               <label data-error="wrong" data-success="right" for="formNameEdit15">Quantity</label>
+                                <input type="number" name="qty" id="qty" class="form-control validate">                          
+                              </div>
+
+                        <div id= "modal-success" class="alert alert-success alert-dismissible" style="display:none">
+                                              
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>Ingredient Successfully Added</strong>
+                        </div>
+    
+            <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+              <button id="addIng2"  type="button" class="btn btn-outline-secondary btn-block editInside">Add Ingredient
+    
+                <i class="far fa-paper-plane ml-1"></i>
+              </button>
+                </div>
+        </form>
+      </div>             
+    </div>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="container">                             
+            
+                <div class="card">
+                        
+                        <div class="card-header">
+                                <div class="row"> 
+                                  <div class="col-sm-8">
+                                    <ol class="col-12 breadcrumb">
+                                      <li class="breadcrumb-item"><a href="/dish/all-dishes">All Dishes</a></li>
+                                      <li class="breadcrumb-item active">Ingredients</li>
+                                      
+                                  </ol>
+                                  </div>
+                                  <div class="ml-auto">
+                                      <button class="btn btn-success" data-toggle="modal"  data-target="#ingredientsModal">Add Ingredient</button>
+                                  </div>
+                                </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 id="dish-name" class="card-title">Dish Ingredients</h5>
+                            <div class="table-responsive">
+                              <table id="dataTable" class="table table-light table-hover table-bordered" style="width: 100%;">
+                                <thead>
+                                        <tr>
+                                                <th>Id</th>
+                                                <th>Ingredient Name</th>
+                                                <th>Unit</th>
+                                                <th>Quantity</th>
+                                                <th>Action</th> 
+
+                                        </tr>
+
+                                    </thead>
+                                <tbody>
+                                </tbody>
+                        </table>
+                            </div>
+                            
+        </div>
+</div>
+</div>
+    
+</div>
+
+</div>
+</div>
+
+
+<script src="/js/view-ingredients.js"></script>
+<%- include('footer'); %>

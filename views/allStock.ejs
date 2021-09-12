@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<%- include('header',{role:role}); %> 
+
+    <div class="col-sm-10" style=" margin-top: 10px; ">
+
+        <div class="container"  style="margin-left:15px;">
+                <div id="itemDeleteModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                        <!-- <h3 id="modalTitle"> </h3> -->
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
+                                <div class="modal-body" id="modalBody">
+
+                                </div>
+                                <div class="modal-footer">
+                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                </div>
+                                </div>
+                        </div>
+                </div>                                        
+
+                <ul  class="nav nav-tabs" id="nav_items" role="tablist">
+
+                    </ul>
+
+                        <!-- Tab panes -->
+                    <div  class="tab-content" id="tab_content">
+                            <div id="vegetable" class="container tab-pane active"><br>
+                        <!-- <div class="row">
+                                        <div class="col-sm-6">
+                                        <div class="card card-accent-dark bg-light" >
+                                            <div class="card-body">
+                                                    <div class="row">
+                                                                <div class="col-sm-6">
+                                                                        <div class="row">
+                                                                                <div class="col">
+                                                                                        <img src="./img/potato.jpg" alt="potato_image" class="img-fluid">
+                                                                                </div>
+                                                                                <div class="w-100"></div>
+                                                                                <div class="col"></div>
+                                                                        </div>                                                                                                
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                        <h5 class="card-title">Potato</h5>
+                                                                                <div class="row card-text">
+                                                                                                <label  class="col-sm-6">Use in recipe: </label>
+                                                                                                <label  class="col-sm-6">1</label>
+                                                                                                <div class="w-100"></div>
+                                                                                                <label  class="col-sm-6">Total Purse:</label>
+                                                                                                        <label  class="col-sm-6">25|KG </label>
+                                                                                                <div class="w-100"></div>
+                                                                                                <label  class="col-sm-6">Total Cooked:</label>
+                                                                                                        <label  class="col-sm-6">0 KGS </label>
+                                                                                                <div class="w-100"></div>
+                                                                                                <label  class="col-sm-6">Available:</label>
+                                                                                                        <label  class="col-sm-6">24.8 </label>                                                                        
+                                                                                                <div class="w-100"></div>
+                                                                                                <label  class="col-sm-6">Last Purses: </label>
+                                                                                                <label  class="col-sm-6">30-Sep-2017</label>
+                                                                                                <div class="w-100"></div>
+                                                                                                <label  class="col-sm-6 ">Added by: </label>
+                                                                                                <label  class="col-sm-6">Someone</label>
+                                                                                </div>                                                                                                                                                                                                                                                                                                                                                                                                                              
+                                                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+
+
+
+                                                                </div>
+                                                                <div class="col-sm-2"></div>
+
+                                                    </div>
+
+
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Special title treatment</h5>
+                                            <p class="card-text">It's a broader card with text below as a natural lead-in to extra content. This content is a little longer.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    
+                                        
+
+
+
+
+                                </div> -->
+
+
+
+
+
+                            </div>
+                            <!-- <div id="fruits" class="container tab-pane fade"><br>
+                            </div> -->
+                            <div id="grocery" class="container tab-pane fade"><br>
+                           </div>
+                            <div id="spice" class="container tab-pane fade"><br>
+                                <!-- <h3>Menu 2 spice</h3> -->
+                                <!-- <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p> -->
+                            </div> 
+                            <div id="drinks" class="container tab-pane fade"><br>
+                                <!-- <h3>Menu 2 drinks</h3> -->
+                                <!-- <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p> -->
+                            </div>     
+                            <div id="meat" class="container tab-pane fade"><br>
+                                <!-- <h3>Menu 2 meat</h3> -->
+                                <!-- <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p> -->
+                            </div>                                                                                                                                                      
+
+                        </div>
+
+                        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 id="modalTitle"> Title</h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        </div>
+                                        <div class="modal-body" id="modalBody">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+        </div>
+
+    </div>
+
+
+    </div>
+
+
+
+
+    </div>
+
+    
+    <script src="/js/allStock.js"></script>
+    <%- include('footer'); %>

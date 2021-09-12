@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            
+            <link rel="stylesheet" type="text/css" href=".\css\bootstrap.min.css">
+            
+            <link rel="stylesheet" type="text/css" href=".\css\styles.css"> 
+   
+    
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+            <script src="./js/jquery-3.4.1.js"></script>   
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+            <!-- <script src="./js/jquery-2.2.3.min.js"></script>  -->
+                    
+            <title>Restulator</title>
+    </head> 
+
+    <body onload="getDishType()">
+
+        <div class="modal fade modalEditClass" id="myModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header text-center">
+                      <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">ADD DISH Category</h4>
+                      <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+        <div class="modal-body mx-3 modal-inputs">
+
+                <form id="editEmptForm" method="POST">
+                        
+                                <div class="md-form mb-5">
+                                        <input type="text" id="category" class="form-control validate" required>
+                                        <label data-error="wrong" data-success="right" for="formNameEdit15">Enter Dish Category</label>
+                                      </div>
+                                      
+                    <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+                      <button id="editEmp" formmethod="POST" type="submit" class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">Add Category
+        
+                        <i class="far fa-paper-plane ml-1"></i>
+                      </button>
+                        </div>
+                </form>
+         </div>
+                  </div>
+                </div>
+              </div>
+
+
+        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-danger fixed -top">
+            
+            <a href="#" class="navbar-brand navbar-text ">Restulator</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+    
+            </button>     
+
+            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
+                <ul class="navbar-nav  ">
+                        <li class="nav-item"> <a href="#" class="nav-link">New Order</a></li>
+
+                </ul>
+
+
+            </div>
+
+        </nav>
+
+        <diV class="container-fluid">
+
+                <div class="row">
+
+                        <div class="col-sm-2 px-2 position-fixed">        
+                                <div class="sidebar">
+                                        <h6 class="sidebarHeading">Navigation</h6>
+                                        <a href="#" >Dashboard</a>
+                                        <a href="#">Reports</a>
+                                        <a href="#" class="dropdown-btn">Kitchen<i class="fa fa-angle-right"></i> </a>
+                                                <div class="dropdown-container">
+                                                        <a href="#">Live Kitchen</a>
+
+                                                </div>                                        
+                                        <a href="#" class="dropdown-btn">Orders<i class="fa fa-angle-right"></i> </a>                                               
+                                                <div class="dropdown-container">
+                                                        <a href="/newOrders.html">New Order</a>
+                                                        <a href="/allOrders.html">All Order</a>
+                                                        <a href="/nonPaidOrders.html">Non-Paid Order</a>
+                                                </div>
+                                        
+                                        <a href="#">Supplier</a>
+                                        <a href="#" class="dropdown-btn">Accounting <i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="#" class="dropdown-btn"> Expense <i class="fa fa-angle-right"></i></a>
+                                                                <div class="dropdown-container">
+                                                                        <a href="#">Add Expense</a>
+                                                                        <a href="#">All Expense</a>
+                                                                </div>
+
+
+                                                        
+                                                        <a href="#">Income</a>
+                                                </div>
+
+                                        
+                                        <a href="#">Table Management</a>
+                                        <a href="#" class="dropdown-btn active" >Stock Management<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="#" >New Purses</a>
+                                                        <a href="#">All Purses</a>
+                                                        <a href="#" class="active">Add Item</a>
+                                                        <a href="allStock.html">All Stock</a>
+
+                                                </div>                                        
+                                        <a href="#" class="dropdown-btn">Dish<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="/addDish.html" >Add dish</a>
+                                                        <a href="/allDish.html">All Dish</a>
+                                                </div> 
+                                                
+                                        <h6 class="sidebarHeading">More</h6>
+                                        <a href="#" class="dropdown-btn">Employee<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="/addEmployee.html" >Add Employee</a>
+                                                        <a href="/allEmployee.html">All Employee</a>
+                                                </div>
+                                        <a href="#" class="dropdown-btn">Setings<i class="fa fa-angle-right"></i></a>                                                
+                                        
+                                </div>
+                        </div>
+                        <div class="col-sm-10 offset-2" >
+                              <div class="container">
+
+                                <form id="dishAddForm" method="POST">
+
+                                        <div class="form-group row">
+
+                                                <div class="col-sm-2">
+                                                <label for="exampleFormControlInput1">Enter Dish Name </label>
+                                                </div>
+                                                <div class="col-sm">
+                                                <input type="text" class="form-control" name="dish-name" id="dish-name" placeholder="E.g Pizza" required>
+                                                 </div>
+                                        </div>
+                      
+                                        <div class="form-group row">
+                                            <div class="col-sm-2">
+                                            <label for="exampleFormControlInput1">Enter Dish Description</label>
+                                            </div>
+
+                                            <div class="col-sm">
+                                                <input type="text" class="form-control" name="dish-description" id="dish-description" placeholder="E.g " >                                            </div>
+                                        </div> 
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-2">
+                                                    <label for="exampleFormControlInput1">Enter Unit Price </label>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                    <input type="number" class="form-buttoncontrol" name="dish-price" id="dish-price" placeholder= "E.g 5" required>
+                                            </div>                                                
+
+                                         </div>  
+
+                                        <div class="form-group row">
+
+                                        <div class="col-sm-2">
+                                                <label for="exampleFormControlInput1">Choose Dish Category</label>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                                      
+                                                        <select id="selectlist" class="form-control"  required>
+                                                                        <option value="" disabled selected>Choose your option</option>
+                                                        </select>
+                                        </div>
+
+                                        <div class="col-sm">
+                                                <button type="button"  data-target="#myModal"  data-toggle="modal" class="btn btn-primary mb-2" id="addDish">Add Category</button>
+                                        </div>
+                                </div>
+
+
+                                        <div class="form-group row">
+                                                <div class="col-sm offset-sm-2">
+                                                <button  id="dish-btn"  type="submit" class="btn btn-success" formmethod="POST">Add Dish</button>
+                                                </div>
+                                        </div>
+
+
+                                </form>
+
+                                </div>
+
+                        </div>
+
+                </div>
+
+        </diV>
+        <script src="./js/addDish.js"></script>
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+        <script src="./js/jquery-3.4.1.js"></script>   
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+        
+
+
+    </body>
+
+
+
+
+
+
+</html>

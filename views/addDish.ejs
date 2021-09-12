@@ -1,0 +1,217 @@
+<%- include('header',{role:role}); %>
+<div class="col-sm-10 " style="margin-top: 10px; ">
+
+         <!-- Modal -->
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h5 class="modal-title" id="modal-title">
+                   
+                 </h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body" id="modal-body">
+              </div>
+           </div>
+        </div>
+      </div>  
+
+    <div class="modal fade modalEditClass" id="myModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">ADD DISH Category</h4>
+              <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+<div class="modal-body mx-3 modal-inputs">
+
+        <form id="addCategoryForm" method="POST">
+                
+                        <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="formNameEdit15">Enter Dish Category</label>
+                                <input type="text" name="category" id="category" class="form-control validate">          
+                              </div>
+
+                        <div id= "category-success" class="alert alert-success alert-dismissible" style="display:none">
+                                                        
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>Category Successfully Added!</strong>
+                        </div>
+                              
+            <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+              <button id="add-cat"  type="button" class="btn btn-outline-secondary btn-block editInside">Add Category
+
+                <i class="far fa-paper-plane ml-1"></i>
+              </button>
+                </div>
+        </form>
+ </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade modalEditClass" id="ingredientsModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">ADD Ingredient</h4>
+              <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+    <div class="modal-body mx-3 modal-inputs">
+    
+      <div class="modal-body">
+        <form id="addIngredientForm">
+                <div class="col-sm-10">
+                        <label for="exampleFormControlInput1">Choose Ingredient Type</label>
+                        </div>
+    
+                <div class="md-form mb-5">
+                                        
+                        <select id="ingType" name="ingType" class="form-control">
+                                <option value="" disabled selected>Choose your option</option>
+                                                                
+                        </select>
+                </div>
+                        <div class="col-sm-10">
+                                <label for="exampleFormControlInput1">Choose Ingredient</label>
+                                </div>
+    
+                        <div class="md-form mb-5">
+                                                
+                                <select id="selectIng" name="selectIng" class="form-control">
+                                        <option value="" disabled selected>Choose your option</option>
+                                                                        
+                                </select>
+                        </div>
+    
+                        <div class="md-form mb-5">
+                               <label data-error="wrong" data-success="right" for="formNameEdit15">Quantity</label>
+                                <input type="number" name="qty" id="qty" class="form-control validate">                          
+                              </div>
+
+                        <div id= "modal-success" class="alert alert-success alert-dismissible" style="display:none">
+                                              
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>Ingredient Successfully Added</strong>
+                        </div>
+    
+            <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+              <button id="addIng"  type="button" class="btn btn-outline-secondary btn-block editInside">Add Ingredient
+    
+                <i class="far fa-paper-plane ml-1"></i>
+              </button>
+                </div>
+        </form>
+      </div>             
+    </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-sm-10" >
+        <div class="container">
+
+          <form id="dishAddForm" method="POST">
+
+                  <div class="form-group row">
+
+                          <div class="col-sm-2">
+                          <label for="exampleFormControlInput1">Enter Dish Name </label>
+                          </div>
+                          <div class="col-sm">
+                          <input type="text" class="form-control" name="dish-name" id="dish-name" placeholder="E.g Pizza" required>
+                           </div>
+                  </div>
+
+                  <div class="form-group row">
+                      <div class="col-sm-2">
+                      <label for="exampleFormControlInput1">Enter Dish Description</label>
+                      </div>
+
+                      <div class="col-sm">
+                          <input type="text" class="form-control" name="dish-description" id="dish-description" placeholder="E.g " >                                            </div>
+                  </div> 
+
+                  <div class="form-group row">
+                      <div class="col-sm-2">
+                              <label for="exampleFormControlInput1">Enter Unit Price </label>
+                      </div>
+
+                      <div class="col-sm-4">
+                              <input type="number" class="form-buttoncontrol" name="dish-price" id="dish-price" placeholder= "E.g 5" required>
+                      </div>                                                
+
+                   </div>  
+
+                  <div class="form-group row">
+
+                  <div class="col-sm-2">
+                          <label for="exampleFormControlInput1">Choose Dish Category</label>
+                  </div>
+
+                  <div class="col-sm-4">
+                                
+                                  <select id="selectlist" class="form-control"  required>
+                                                  <option value="" disabled selected>Choose your option</option>
+                                  </select>
+                  </div>
+
+                  <div class="col-sm">
+                          <button type="button"  data-target="#myModal"  data-toggle="modal" class="btn btn-primary mb-2" id="addDish">Add Category</button>
+                  </div>
+          </div>
+
+          <div class="form-group row">
+                <div class="col-sm offset-sm-2">
+                <button  id="ingredients"  type="button" data-target="#ingredientsModal" data-toggle="modal" class="btn btn-info">Add Ingredients</button>
+                </div>
+        </div>
+
+                  <div class="form-group row">
+                          <div class="col-sm offset-sm-2">
+                          <button  id="dish-btn"  type="submit" class="btn btn-success" formmethod="POST">Add Dish</button>
+                          </div>
+                  </div>
+
+                  <div id= "alert-success" class="alert alert-success alert-dismissible" style="display:none">
+                                                        
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Dish Successfully Added!</strong>
+                </div>
+
+                <div id= "ingredient-success" class="alert alert-success alert-dismissible" style="display:none">
+                                              
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong></strong>
+          </div>
+
+          <div id= "error-ingredients" class="alert alert-danger alert-dismissible" style="display:none">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Please Select any Ingredient with Add Ingredient for the Dish</strong>
+              </div>
+
+                <div id= "alert-danger" class="alert alert-danger alert-dismissible" style="display:none">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Ingredients cannnot be Added, Check your connection and try again!</strong>
+                </div>
+
+
+          </form>
+
+          </div>
+
+  </div>
+
+
+<script src="/js/addDish.js"></script>
+<%- include('footer'); %>

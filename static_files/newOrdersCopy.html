@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            
+            <link rel="stylesheet" type="text/css" href=".\css\bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href=".\css\styles.css">    
+    
+           
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+            
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+            <script src="./js/jquery-3.4.1.js"></script>  
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>        
+                    
+            <title>Restulator</title>
+    </head> 
+
+    <body onload="getDishType()">
+        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-danger fixed -top">
+            
+            <a href="#" class="navbar-brand navbar-text ">Restulator</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+    
+            </button>     
+
+            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
+                <ul class="navbar-nav  ">
+                        <li class="nav-item"> <a href="#" class="nav-link">New Order</a></li>
+
+        
+                        
+                    
+                </ul>
+
+
+            </div>
+
+        </nav>
+
+        <diV class="container-fluid">
+
+                <div class="row">
+
+                        <div class="col-sm-2 px-2 position-fixed">        
+                                <div class="sidebar">
+                                        <h6 class="sidebarHeading">Navigation</h6>
+                                        <a href="login.html" class="active">Dashboard</a>
+                                        <a href="#">Reports</a>
+                                        <a href="#" class="dropdown-btn">Kitchen<i class="fa fa-angle-right"></i> </a>
+                                                <div class="dropdown-container">
+                                                        <a href="#">Live Kitchen</a>
+
+                                                </div>                                        
+                                        <a href="#" class="dropdown-btn">Orders<i class="fa fa-angle-right"></i> </a>                                               
+                                                <div class="dropdown-container">
+                                                        <a href="#">New Order</a>
+                                                        <a href="#">All Order</a>
+                                                        <a href="#">Non-Paid Order</a>
+                                                </div>
+                                        
+                                        <a href="#">Supplier</a>
+                                        <a href="#" class="dropdown-btn">Accounting <i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="#" class="dropdown-btn"> Expense <i class="fa fa-angle-right"></i></a>
+                                                                <div class="dropdown-container">
+                                                                        <a href="#">Add Expense</a>
+                                                                        <a href="#">All Expense</a>
+                                                                </div>
+
+
+                                                        
+                                                        <a href="#">Income</a>
+                                                </div>
+
+                                        
+                                        <a href="#">Table Management</a>
+                                        <a href="#" class="dropdown-btn">Stock Management<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="#" >New Purses</a>
+                                                        <a href="#">All Purses</a>
+                                                        <a href="addItem.html">Add Item</a>
+                                                        <a href="#">All Stock</a>
+
+                                                </div>                                        
+                                        <a href="#" class="dropdown-btn">Dish<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="#" >Add dish</a>
+                                                        <a href="#">All Dish</a>
+                                                </div> 
+                                                
+                                        <h6 class="sidebarHeading">More</h6>
+                                        <a href="#" class="dropdown-btn">Employee<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="/addEmployee.html" >Add Employee</a>
+                                                        <a href="/allEmployee.html">All Employee</a>
+                                                </div>
+                                        <a href="#" class="dropdown-btn">Setings<i class="fa fa-angle-right"></i></a>                                                
+
+
+
+
+
+                                        
+                                </div>
+                        </div>
+                        <div class="col-sm-10 offset-2" >
+
+                                <div class="container">
+
+                                
+                                        <form class="form-inline ">
+                                                <div class="form-group row ">
+                                                        <div class="col-sm mt-3">
+                                                        <label for="exampleFormControlInput1">Select Table</label>
+                                                        </div>
+                                                                                               
+                                                    </div> 
+                                                <div class="form-group mt-3">
+                                                  <input type="text" class="form-control" id="inputPassword2" placeholder="table No">
+                                                </div>
+                                                <!-- <button type="submit" class="btn btn-primary mb-2">Confirm identity</button> -->
+                                                <div class="form-group row col-sm-2">
+                                                        <div class="col-sm-10">
+                                                        <label for="exampleFormControlInput1">Select Dish</label>
+                                                        </div>
+                                        
+                                                    </div> 
+                                                    <select id="selectDish" class="form-control" >
+                                                        <option value="" disabled selected>Choose your option</option>
+                                                       
+                                               
+                                                </select>
+
+                                              </form>
+
+                                              <form class="form-inline">
+                                                <div class="form-group row">
+                                                        <div class="col-sm mt-3 sm-4">
+                                                        <label for="exampleFormControlInput1">Dish Type</label>
+                                                        </div>
+                                                                                               
+                                                    </div> 
+                                                <div class="form-group  mt-3 sm-3">
+                                                        <select id="dishType"  class="form-control" >
+                                                                <option value="" disabled selected>Choose your option</option>
+                                                               
+                                                       
+                                                        </select>
+                                                </div>
+                                                <!-- <button type="submit" class="btn btn-primary mb-2">Confirm identity</button> -->
+                                                <div class="form-group row col-sm-4">
+                                                        <div class="col-sm">
+                                                        <label for="exampleFormControlInput1">Quantity</label>
+                                                        
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <input type="text" id="qty" class="form-control"  placeholder="1">
+                                                              </div>
+                                        
+                                                    </div> 
+
+                                                    <div class="form-group row col-sm-4">
+                                                        <div class="col-sm">
+                                                        <label for="exampleFormControlInput1">Price</label>
+                                                        
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <input type="text" class="form-control" id="price" placeholder="1">
+                                                              </div>
+                                        
+                                                    </div> 
+                                                    
+                                                    
+
+                                              </form>
+
+
+                                              <form class="form-inline ">
+                                                <div class="form-group row col-sm-4 ">
+                                                        <div class="col-sm">
+                                                <button type="button" class="btn btn-primary mb-2" id="addDish">Add Dish</button>
+                                                        </div>
+                                                                 
+                                                        <div class="col-sm ml-3">
+                                                                <button type="submit" class="btn btn-primary mb-2">Cancel</button>
+                                                        </div>
+                                                    </div> 
+
+                                                    <div class="form-group row col-sm-4">
+                                                        <div class="col-sm">
+                                                        <label for="exampleFormControlInput1">Total Price</label>
+                                                        
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <input type="text" class="form-control" id="totalPrice" placeholder="1">
+                                                              </div>
+                                        
+                                                    </div> 
+                                                    <div class="col-sm">
+                                                        <button type="submit" class="btn btn-primary mb-2" id="addOrder">Add Order</button>
+                                                                </div>
+                                                
+
+                                              </form>
+
+                                              <div class="card" >
+                                                <div class="card-header">
+                                                    Featured
+                                                </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Employee</h5>
+                                                    <table id="dataTable" class="table table-light table-hover table-bordered" style="width: 100%;">
+                                                            <thead>
+                                                                    <tr>
+                                                                            <th>Dish Name</th>
+                                                                            <th>Type</th>
+                                                                            <th>Quantity</th>
+                                                                            <th>Price</h3></th> 
+                                                                            <th>Action</th> 
+            
+                                                                    </tr>
+            
+                                                                </thead>
+                                                            <tbody>
+                                                            </tbody>
+                                                    </table>
+
+                                </div>
+
+                                
+
+        
+        
+                        </div>
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+        </diV>
+         <script type="text/javascript">
+
+                $(document).ready(function(){
+
+                        var t =  $('#dataTable').DataTable( { 
+                                 "columnDefs": [ {
+                                        "searchable": true,
+                                        "orderable": true,
+                                        "targets": 0
+                                        } ],
+                                "order": [[ 1, 'asc' ]],  
+                                "ajax": {         
+                                        type :'GET',
+                                        url : '/getAllEmployee/',
+                                        dataType: 'json',
+                                       
+                               
+                                                
+                                }, 
+                                                       
+                                // "processing": true,
+                                // "filter": true, 
+                                "columns": [
+                                        
+                          
+                {"data": "id"},
+                { "data":"image", "render": function ( data, type, row, meta ) {
+                        return '<img width="150px" src="' + data+ '" />';}},
+                // {data:'telephone'},
+                // { "title": "Info", "data": "mobile","data":"name","data":"telephone","render": function ( data, type, row, meta ) {
+                //         return data +' '+ data1 + '' + data2;}},
+                { "data": "name","render": function ( data, type, row, meta ) {
+                        return 'Name: ' +  row.name + "<br />" + 'Mobile: ' + row.mobile + "<br />" +
+                        "Address: " + row.address + "<br />" + "Created At: " + row.created_at ;}},
+                { "data":'role'},
+                {"data":"id","render": function (data, type, row, meta ) {
+                        return '<button type="button" id="'+ data +' "class="btn btn-primary badge-pill edit" data-toggle="modal"  data-id="'+row.id+'" data-name="'+row.name+'" data-role="'+row.role+'" data-mobile="'+row.mobile+'" data-address="'+row.address+'" data-created_at="'+row.created_at+'" data-national_identity="'+row.national_identity+'" data-gender="'+row.gender+'" data-telephone="'+row.telephone+'" data-salary="'+row.salary+'" data-join_date="'+row.join_date+'" data-birth_date="'+row.birth_date+'" data-branch_id="'+row.branch_id+'" data-category_id="'+row.cat_id+'" data-image="'+row.image+'" data-target="#myModal">Edit</button>' +
+                        '<button id="' + row.id + ' "class="btn btn-danger badge-pill delete" style="margin-left:10px";>Delete</button>';
+                  }
+                }
+            ]
+                        
+
+                       
+                });
+
+                t.on( 'order.dt search.dt', function () {
+                        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                        cell.innerHTML = i+1;
+                        } );
+                } ).draw();
+
+
+                        $("#dishType").change(function dish(e){
+                         console.log("Hello world");
+
+           
+                                var dishType_id  = $("#dishType").val();
+                                console.log(dishType_id);
+                                
+                                $.ajax({
+                                                type :'GET',
+                                                url : '/dish/' + dishType_id,
+                                                success:(data) =>{
+                                                        categories_obj = data;
+                                                        // console.log(categories_obj[0].type_id + " " +  categories_obj[0].type);
+                                                        console.log(data.length);
+                                                        var x ="", i;
+                                                        console.log(data[0].description);
+
+                                                        for (i=0; i<data.length; i++) {
+                                                                // console.log(categories_obj[i].id  + " " + categories_obj[i].name)
+                                                                        // console.log(data[i].name);
+                                                                x = x + "<option value=" + data[i].name + ">" + data[i].description + "</option>";
+                                                                // console.log(x);
+
+
+
+                                                                
+                                                        }
+                                                        elem = document.getElementById("selectDish");
+                                                        $("#selectDish").children('option:gt(0)').hide();
+
+                                                        df = document.createDocumentFragment(); // create a document fragment to hold the options while we create them
+                                                        for (var i = 0; i < data.length; i++) { // loop, i like 42.
+                                                                // $("#price").val(data[i].price);
+                                                                
+                                                                var option = document.createElement('option'); // create the option element
+                                                                option.value = data[i].id; // set the value property
+                                                                option.appendChild(document.createTextNode(data[i].name)); // set the textContent in a safe way.
+                                                                df.appendChild(option); // append the option to the document fragment
+                                                        }
+                                                        elem.appendChild(df); // append the document fragment to the DOM. this is the better way rather than setting innerHTML a bunch of times (or even once with a long string)
+
+
+
+
+
+                                                                                var selectDishId  = data[0].id;
+                                                                                console.log(selectDishId);
+
+
+
+
+                                                        // console.log(x);
+
+
+                                                }
+
+
+
+                                        });
+
+
+                        });
+
+                        $("#selectDish").change(function(e){
+                          var dish_id = $("#selectDish").val();
+                          console.log(dish_id);
+
+
+
+                          $.ajax({
+                                                type :'GET',
+                                                url : '/dishPrice/' + dish_id,
+                                                async:false,
+                                                success:(data) =>{
+                                                        categories_obj = data;
+                                                        // console.log(categories_obj[0].type_id + " " +  categories_obj[0].type);
+                                                        console.log(data.length);
+                                                        var x ="", i;
+                                                        
+                                                        // df = document.createDocumentFragment(); // create a document fragment to hold the options while we create them
+                                                        for (var i = 0; i < data.length; i++) { // loop, i like 42.
+                                                                $("#price").val(data[i].price);
+                                                                console.log("Hell world");
+                                                                
+                                                        }
+                                        
+
+                                                }
+
+
+
+                                        });
+
+                        });
+
+                        $("#qty").change(function(e){
+                                // alert("The text has been changed.");
+                                console.log($("#qty").val());
+                                var quantity = $("#qty").val();
+                                console.log(quantity);
+
+                                var price = $("#price").val();
+
+                                var totalPrice = quantity * price;
+
+                                $("#totalPrice").val(totalPrice);
+
+                        });
+                        
+                        var i = [];
+                        var data = [];
+                        $('#addDish').each(function() {
+                                $(this).click(function(e) { 
+                                        console.log("add dish here");
+
+                                        var formData = {
+                                        'order_id' : $("#selectDish").val(),
+                                        'dish_id': $("#selectDish").val(),
+                                        'dish_quantity': $("#qty").val()
+                                        };
+
+                                        i = Object.values(formData);
+
+                                        data.push(i);
+
+                                        console.log("I is " + i);
+
+                                        console.log("Data is " + data);
+
+                                        //var data = [];
+                                        // i.push(formData);
+                                        // console.log(i.length);
+                                        // console.log(i);
+
+                                        // for(var x = 0; x< i.length; x++) {
+                                        //         console.log(i[x]);
+                                        // }
+
+                                        var dish_id = $("#selectDish").val();
+                                        console.log(dish_id);
+
+                                        return false;
+                                        e.preventDefault();
+                                        $("#addOrder").data(data);
+                                        // window.location.reload();
+
+                                });
+                        });
+
+                        console.log(i);
+
+                                $("#addOrder").click(function(e){
+                                        console.log("Iam in Add Order!!");
+                                        // alert( $('#addOrder').data(i));
+                                        console.log(data);
+                                        console.log("hellooo");
+
+                                        $.ajax({
+                                        url: '/order/',
+                                        type: 'POST',
+                                        data:  {'data': data},
+                                        dataType: 'json',
+                                        success: (data) => {
+                                                console.log('everything good');
+                                                // window.location.replace("index.html");
+
+                                        }				
+                                        });
+                                        e.preventDefault();
+
+
+                                });
+
+
+
+
+      
+        });
+
+
+        </script> 
+
+        <script>
+                function getDishType(e) {
+                        $.ajax({
+                                        type :'GET',
+                                        url : '/dishType/',
+                                        success:(data2) =>{
+                                                console.log(data2);
+                                                categories_obj = data2.data;
+                                                console.log(categories_obj[0].type_id + " " +  categories_obj[0].type);
+                                                console.log(categories_obj.length);
+                                                var x ="", i;
+
+                                                for (i=0; i<categories_obj.length; i++) {
+                                                        // console.log(categories_obj[i].id  + " " + categories_obj[i].name)
+                                                                // console.log(data[i].name);
+                                                        x = x + "<option value=" + categories_obj[i].type_id + ">" + categories_obj[i].type + "</option>";
+                                                        // console.log(x);
+
+
+
+                                                        
+                                                }
+                                                elem = document.getElementById("dishType")
+
+                                                df = document.createDocumentFragment(); // create a document fragment to hold the options while we create them
+                                                for (var i = 0; i < categories_obj.length; i++) { // loop, i like 42.
+                                                        var option = document.createElement('option'); // create the option element
+                                                        option.value = categories_obj[i].type_id; // set the value property
+                                                        option.appendChild(document.createTextNode(categories_obj[i].type)); // set the textContent in a safe way.
+                                                        df.appendChild(option); // append the option to the document fragment
+                                                }
+                                                elem.appendChild(df); // append the document fragment to the DOM. this is the better way rather than setting innerHTML a bunch of times (or even once with a long string)
+
+                                             
+                                                console.log(x);
+
+
+                                        }
+
+
+
+                                });
+
+                };
+
+        </script>
+
+
+
+
+        
+                <script>
+                /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+                var dropdown = document.getElementsByClassName("dropdown-btn");
+                var i;
+                
+                for (i = 0; i < dropdown.length; i++) {
+                  dropdown[i].addEventListener("click", function() {
+                  this.classList.toggle("active");
+                  var dropdownContent = this.nextElementSibling;
+                  if (dropdownContent.style.display === "block") {
+                  dropdownContent.style.display = "none";
+                  } else {
+                  dropdownContent.style.display = "block";
+                  }
+                  });
+                }
+                </script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+<script src="./js/jquery-3.4.1.js"></script>   
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+    </body>
+
+
+
+
+
+
+</html>

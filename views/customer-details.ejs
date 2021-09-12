@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    
+     <!-- DataTable links -->
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+ 
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">   
+      
+     <!--Anychart links-->
+      <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+ 
+ 
+     <!-- Morris charts links -->
+     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+ 
+    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <script src="/js/jquery-3.4.1.js"></script>   
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+     
+     <script src = "/js/jquery.tabledit.js"></script>
+     <script src="/socket.io/socket.io.js"></script>
+     
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>
+ 
+          <!-- links for print  -->
+          <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
+          <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables_themeroller.css">
+          <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+          <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
+  
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+    <!-- form validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+ 
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+    <title>Restulator </title>
+</head> 
+<body>
+
+        <div class="modal fade" id="dishesModal" style="width: 95%;" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                                <h4>Dishes</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                            <div class="responsive-table" style="width:100%;margin:30px">
+                                <table class="table table-bordered" style="margin-bottom:2em" id="dishesTable">
+                                        <thead>
+                                            <tr>
+                                                <th >No.</th>
+                                                <th>Dish</th>
+                                                <th>Quantity</th>
+                                                <th>Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>  
+        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-danger ">
+            
+                <a  class="navbar-brand navbar-text ">RESTULATOR CUSTOMER</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+        
+                </button>     
+                
+                <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
+
+
+
+                        <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item"> <button class="btn btn-default" ><a href="customer-logout" class="nav-link " >Logout</a></button></li>
+                        </ul>
+
+    
+            
+                                                    
+                    
+    
+    
+                </div>
+    
+            </nav>
+    
+            <div class="container" >
+    
+                    <div class="row">
+
+                    <div class="col-12">
+                        <h3 style="padding-top: 20px;">Customer's Info</h3>
+                        <hr/>
+                    </div> 
+                    <div class="col-12 ">
+                        <div class="card card-accent-dark bg-light">
+                            <!-- <div class="card-header bg-danger text-white">Facts At a Glance</div> -->
+                            <div class="card-body">
+                                <dl class="row p-1">
+                                    <dt class="col-6">Name</dt>
+                                    <dd class="col-6" id="name_field"></dd>
+                                    <dt class="col-6">Email</dt>
+                                    <dd class="col-6" id="email_field"></dd>
+                                    <dt class="col-6" >Points</dt>
+                                    <dd class="col-6" id="points_field"></dd>
+
+                                </dl>
+                            </div>
+                          
+                        </div>
+                        <h3 style="padding-top: 20px;">Orders</h3>
+                        <hr/>  
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                 <table id="OrdersDatatable" class="table table-light table-hover table-bordered" style="width: 100%;">
+                                        <thead>
+                                                <tr>
+                                                        <th>ID</th>
+                                                        <th>Order At</th>
+                                                        <th>Dishes</th>
+                                                        <th>Bill</th> 
+                                                        <th>Payment Status</th> 
+                
+                                                </tr>
+                
+                                            </thead>
+                                        <tbody>
+                                        </tbody>
+                                </table>
+                
+                            </div>
+                        </div>                                                  
+
+                    </div> 
+                    <div id="test_div"  style="display:none" data-id=<%= cust_id %>></div>                   
+
+                                                
+
+                    </div> 
+            </div>
+
+        <script type="text/javascript" src="/js/customer-details.js"></script>
+
+
+        <script>
+
+            console.log("Footer dropdown called");                
+                /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+                var dropdown = document.getElementsByClassName("dropdown-btn");
+                var i;
+                
+                for (i = 0; i < dropdown.length; i++) {
+                    dropdown[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                    } else {
+                    dropdownContent.style.display = "block";
+                    }
+                    });
+                }
+
+    </script> 
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script> this is causing the print function to not work--> 
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>                        

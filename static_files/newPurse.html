@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            
+            <link rel="stylesheet" type="text/css" href=".\css\bootstrap.min.css">
+            
+            <link rel="stylesheet" type="text/css" href=".\css\styles.css"> 
+   
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+            <script src="./js/jquery-3.4.1.js"></script>   
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+            <!-- <script src="./js/jquery-2.2.3.min.js"></script>  -->
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>
+
+                    
+            <title>Restulator</title>
+    </head> 
+
+    <body >
+        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-danger fixed -top">
+            
+            <a href="#" class="navbar-brand navbar-text ">Restulator</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+    
+            </button>     
+
+            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
+                <ul class="navbar-nav  ">
+                        <li class="nav-item"> <a href="#" class="nav-link">New Order</a></li>
+
+        
+                        
+                    
+                </ul>
+
+
+            </div>
+
+        </nav>
+
+        <diV class="container-fluid">
+
+                <div class="row">
+
+                        <div class="col-sm-2  "style="margin:0px; padding: 0px;" >        
+                                <div class="sidebar">
+                                        <h6 class="sidebarHeading">Navigation</h6>
+                                        <a href="#" >Dashboard</a>
+                                        <a href="#">Reports</a>
+                                        <a href="#" class="dropdown-btn">Kitchen<i class="fa fa-angle-right"></i> </a>
+                                                <div class="dropdown-container">
+                                                        <a href="#">Live Kitchen</a>
+
+                                                </div>                                        
+                                        <a href="#" class="dropdown-btn">Orders<i class="fa fa-angle-right"></i> </a>                                               
+                                                <div class="dropdown-container">
+                                                        <a href="newOrders.html">New Order</a>
+                                                        <a href="allOrders.html">All Order</a>
+                                                        <a href="#">Non-Paid Order</a>
+                                                </div>
+                                        
+                                        <a href="#">Supplier</a>
+                                        <a href="#" class="dropdown-btn">Accounting <i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="#" class="dropdown-btn"> Expense <i class="fa fa-angle-right"></i></a>
+                                                                <div class="dropdown-container">
+                                                                        <a href="#">Add Expense</a>
+                                                                        <a href="#">All Expense</a>
+                                                                </div>
+
+
+                                                        
+                                                        <a href="#">Income</a>
+                                                </div>
+
+                                        
+                                        <a href="#">Table Management</a>
+                                        <a href="#" class="dropdown-btn active" >Stock Management<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="newPurse.html" class="active">New Purses</a>
+                                                        <a href="#">All Purses</a>
+                                                        <a href="addItem.html" >Add Item</a>
+                                                        <a href="allStock.html">All Stock</a>
+
+                                                </div>                                        
+                                        <a href="#" class="dropdown-btn">Dish<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="addDish.html" >Add dish</a>
+                                                        <a href="allDish.html">All Dish</a>
+                                                </div> 
+                                                
+                                        <h6 class="sidebarHeading">More</h6>
+                                        <a href="#" class="dropdown-btn">Employee<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="addEmployee.html" >Add Employee</a>
+                                                        <a href="allEmployee.html">All Employee</a>
+                                                </div>
+                                        <a href="#" class="dropdown-btn">Setings<i class="fa fa-angle-right"></i></a>                                                
+                                        
+                                </div>
+                        </div>
+                        <div class="col-sm-8 offset-2  " style="margin-left:55px;  margin-top: 10px; ">
+
+                                <div class="container">
+                                                <div id="addSupplyAlert" class="alert alert-success" role="alert" aria-hidden="true" hidden="true">
+                                                        <strong>Supply Added Successfully</strong>
+                                                
+                                                </div>                                        
+
+                                
+                                <form id="supplyAddForm" method="POST" >
+
+                                        
+
+                                        <div class="form-group row">
+
+                                                <div class="col-sm-2">
+                                                <label for="exampleFormControlInput1">Choose Supplier </label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                        <select id="supplier_selectlist" class="form-control" required data-error="Please select Supplier">
+                                                                        <option value="" disabled selected>Choose supplier</option>
+                                                                        <!-- <option value=1>Meat</option>
+                                                                        <option value="2">Vegetable </option>
+                                                                        <option value="3">Grocery</option> -->
+                                                        </select>
+                                                </div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <div class="col-sm-2">
+                                                <label for="exampleFormControlInput1">Select Date time of Supply</label>
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                                                <input type="text" class="form-control datetimepicker-input" id="datetimeSupply" data-target="#datetimepicker1" required/>
+                                                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="form-group row">
+
+                                                        <div class="col-sm-2">
+                                                        <label for="exampleFormControlInput1">Choose Item </label>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                                <select id="items_selectlist" class="form-control" required >
+                                                                                <option value="" disabled selected>Choose Existing Items</option>
+                                                                                <!-- <option value=1>Meat</option>
+                                                                                <option value="2">Vegetable </option>
+                                                                                <option value="3">Grocery</option> -->
+                                                                </select>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                                <a href="addItem.html"><span class="badge badge-info">Add New Item</span></a>                                                                
+                                                        </div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <div class="col-sm-2">
+                                                        <label for="exampleFormControlInput1">Enter Quantity </label>
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                        <input type="number" class="form-buttoncontrol" name="item_quantity" id="item_quantity" placeholder= "E.g 5" required>
+                                                </div>                                                
+
+                                        </div>
+                                        <div class="form-group row">
+                                                        <div class="col-sm-2">
+                                                                <label for="exampleFormControlInput1">Enter Unit Price </label>
+                                                        </div>
+        
+                                                        <div class="col-sm-4">
+                                                                <input type="number" class="form-buttoncontrol" name="item_unitPrice" id="item_unitPrice" placeholder= "E.g 5" required>
+                                                        </div>                                                
+        
+                                        </div>  
+                                        <div class="form-group row">
+                                                        <div class="col-sm-2">
+                                                                <label for="exampleFormControlInput1">Bill Amount </label>
+                                                        </div>
+        
+                                                        <div class="col-sm-2">
+                                                                <input type="text" class="form-buttoncontrol" name="billAmount" id="billAmount" readonly placeholder= "Click Calculate Bill Button to calculate bill amount">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                                <button type="button" class="btn btn-danger" onclick="calculateBill()">Calculate Bill</button>                                                                
+                                                        </div>                                                
+        
+                                        </div>
+                                        <div class="form-group row">
+                                                        <div class="col-sm-2">
+                                                                <label for="exampleFormControlInput1">Payment </label>
+                                                        </div>
+        
+                                                        <div class="col-sm-4">
+                                                                <input type="number" class="form-buttoncontrol" name="payment" id="payment" placeholder= "E.g 5" required>
+                                                        </div>                                                
+        
+                                        </div> 
+                                        <div class="form-group row">
+
+                                                        <div class="col-sm-2">
+                                                        <label for="exampleFormControlInput1">Choose Payment Status </label>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                                <select id="payment_status_selectlist" class="form-control" required>
+                                                                                <option value="" disabled selected>Choose Payment Status</option>
+                                                                                <option value='paid'>Paid</option>
+                                                                                <option value="unpaid">Unpaid </option>
+                                                                                <option value="balance">Balance</option>
+                                                                                <option value="due" >Due</option>
+                                                                </select>
+                                                        </div>
+                                        </div>                                        
+
+
+                                        <div class="form-group row">
+                                                <div class="col-sm offset-sm-2">
+                                                <button  id="supplyAdd"  type="submit" class="btn btn-success" formmethod="POST" >Add Supply</button>
+                                                </div>
+                                        </div>
+
+                                        
+
+
+
+
+                                </form>
+
+                                </div>
+
+                                
+
+        
+        
+                        </div>
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+        </diV>
+
+        <script >
+        $(document).ready(function(){
+                // $('#datetimepicker1').datetimepicker(); 
+
+                $.ajax({
+                                type :'GET',
+                                url : '/item/',
+                                // dataType: 'json',
+                                success:(data) =>{
+                                        console.log(data.data.length);
+                                        elem = document.getElementById("items_selectlist")
+                                        // console.log(data.data);
+                                        // console.log(data.data[0].id + " " + data.data[0].name);
+
+                                        df = document.createDocumentFragment(); // create a document fragment to hold the options while we create them
+                                        for (var i = 0; i < data.data.length; i++) { 
+                                                var option = document.createElement('option'); // create the option element
+                                                option.value = data.data[i].id; 
+                                                option.appendChild(document.createTextNode(data.data[i].name)); 
+                                                df.appendChild(option); 
+                                        }
+                                        elem.appendChild(df); // append the document fragment to the DOM. this is the better way rather than setting innerHTML a bunch of times (or even once with a long string)
+
+                                     
+
+
+                                }
+
+
+
+                });
+                $.ajax({
+                        type :'GET',
+                        url : '/supplier',
+                        // dataType: 'json',
+                        success:(data) =>{
+                                console.log(data.data.length);
+                                elem = document.getElementById("supplier_selectlist")
+                                // console.log(data.data);
+                                // console.log(data.data[0].id + " " + data.data[0].name);
+
+                                df = document.createDocumentFragment(); // create a document fragment to hold the options while we create them
+                                for (var i = 0; i < data.data.length; i++) { 
+                                        var option = document.createElement('option'); // create the option element
+                                        option.value = data.data[i].id; 
+                                        option.appendChild(document.createTextNode(data.data[i].name)); 
+                                        df.appendChild(option); 
+                                }
+                                elem.appendChild(df); // append the document fragment to the DOM. this is the better way rather than setting innerHTML a bunch of times (or even once with a long string)
+
+                                
+
+
+                        }
+
+
+
+                });  
+                $("#supplyAddForm").submit(function(e){
+                        console.log("Date " + $("#datetimeSupply").val());
+                        var date = new Date($("#datetimeSupply").val()); 
+                        
+                        var conv_date =  date.getFullYear() + "-" + (date.getMonth()+1) + "-"+date.getDate()  +  ' '+ date.toTimeString().split(' ')[0];                      
+                        console.log("converted date: " + conv_date );
+
+
+
+                        console.log("Bill amount " + $('#billAmount').val());
+                        console.log("Payment status " + $("#payment_status_selectlist").val());
+                        console.log("item id: " + $("#items_selectlist").val());
+                        
+                        var supplyForm_obj = {
+                                supplier_id :$("#supplier_selectlist").val(),
+                                supply_at: conv_date,
+                                item_id:$("#items_selectlist").val(),
+                                quantity:$("#item_quantity").val(),
+                                unit_price:$("#item_unitPrice").val(),
+                                bill: $('#billAmount').val(),
+                                payment: $("#payment").val(),
+                                payment_status: $("#payment_status_selectlist").val()
+
+                        };
+                        console.log(supplyForm_obj);
+
+                        
+                        $.ajax({
+                                type :'POST',
+                                url : '/itemFromSupply/',
+                                data : supplyForm_obj,                                        
+                                success:(data) =>{
+                                        console.log(data.data);
+                                        window.location.reload();
+                                        // $("#addSupplyAlert").on('show.bs.modal', function (e) {
+                                        $('#addSupplyAlert').style.visibility = "visible";
+
+                                }
+
+
+
+                        }); 
+                        e.preventDefault();                       
+                        
+                        
+
+                });
+                        
+                        
+
+
+
+
+
+
+        });
+        function calculateBill(){
+                if(document.getElementById("item_unitPrice").value == "" || document.getElementById("item_quantity").value == ""){
+                        document.getElementById('item_unitPrice').style.borderColor = "red";
+                        document.getElementById('item_quantity').style.borderColor = "red";                        
+                        alert("Please Enter Quantity and Unit Price");
+
+                }
+                else{
+                        var num = document.getElementById("item_unitPrice").value * document.getElementById("item_quantity").value;
+                        console.log("Bill amount" + num);
+                        $('#billAmount').prop('readonly',false);
+                        $('#billAmount').val(num);
+                        $('#billAmount').prop('readonly',true);                        
+                        // document.getElementById("billAmount").innerHTML = num;
+
+
+
+                }
+
+
+        };
+        
+        
+            
+        </script>
+                <script>
+                                /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+                                var dropdown = document.getElementsByClassName("dropdown-btn");
+                                var i;
+                                
+                                for (i = 0; i < dropdown.length; i++) {
+                                  dropdown[i].addEventListener("click", function() {
+                                  this.classList.toggle("active");
+                                  var dropdownContent = this.nextElementSibling;
+                                  if (dropdownContent.style.display === "block") {
+                                  dropdownContent.style.display = "none";
+                                  } else {
+                                  dropdownContent.style.display = "block";
+                                  }
+                                  });
+                                }
+                </script>
+
+
+                
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+        <script src="./js/jquery-3.4.1.js"></script>   
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+        
+
+
+    </body>
+
+
+
+
+
+
+</html>

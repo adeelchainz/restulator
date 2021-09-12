@@ -1,0 +1,262 @@
+<%- include('header',{role:role}); %>
+<div class="col-sm-10" style="  margin-top: 10px; min-height: 1000px; ">
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h5 class="modal-title" id="modal-title">
+                   
+                 </h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body" id="modal-body">
+              </div>
+           </div>
+        </div>
+      </div>    
+
+  <div class="modal fade modalEditClass" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">DELETE Order</h4>
+          <button type="button" id="close-delete" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+<div class="modal-body mx-3 modal-inputs">
+
+    <form id="del-dish-form" method="DELETE">
+           
+                    <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="formNameEdit15">Are you sure to delete this order?</label>
+                          </div>
+                          
+
+        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+          <button id="del-dish" formmethod="DELETE" type="button" class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">DELETE Order
+
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+            </div>
+    </form>        
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modalEditClass" id="dishModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">ADD DISH</h4>
+          <button type="button" id="close-dish" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+<div class="modal-body mx-3 modal-inputs">
+
+    <form id="editDishForm" method="POST">
+            <div class="col-sm-10">
+                    <label for="exampleFormControlInput1">Choose Dish Type</label>
+                    </div>
+
+            <div class="md-form mb-5">
+                                    
+                    <select name="dishType" id="dishType" class="form-control">
+                            <option value="" disabled selected>Choose your option</option>
+                                                            
+                    </select>
+            </div>
+                    <div class="col-sm-10">
+                            <label for="exampleFormControlInput1">Choose Dish</label>
+                            </div>
+
+                    <div class="md-form mb-5">
+                                            
+                            <select name="selectDish" id="selectDish" class="form-control">
+                                    <option value="" disabled selected>Choose your option</option>
+                                                                    
+                            </select>
+                    </div>
+
+                    <div class="md-form mb-5">
+                           <label data-error="wrong" data-success="right" for="formNameEdit15">Quantity</label>
+                            <input type="number" name="qty" id="qty" class="form-control validate">        
+                          </div>
+                          <div class="row">
+                                <p>Maximum Dishes that can be added:</p>
+                                    <div id="check-quantity" class="md-form">                          
+                                    </div>
+                                </div>
+                          <div class="md-form mb-5">
+                            <input type="text" id="price" class="form-control validate" readonly>
+                            <label data-error="wrong" data-success="right" for="formPositionEdit15">Price</label>
+                          </div>
+                          <div class="md-form mb-5">
+                            <input type="text" id="total-price" class="form-control validate" readonly>
+                            <label data-error="wrong" data-success="right" for="formOfficeEdit15">Total Price</label>
+                          </div>
+
+                          <div id= "dish-danger2" class="alert alert-danger alert-dismissible" style="display:none">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong></strong>
+                        </div>
+                        
+                        <div id= "success-dish2" class="alert alert-success alert-dismissible" style="display:none">
+                                                            
+                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          <strong></strong>
+                  </div>
+
+                  <div id= "alert-success" class="alert alert-success alert-dismissible" style="display:none">
+                                                        
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong></strong>
+                </div>
+
+        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+          <button id="dish-btn" type="button" class="btn btn-outline-secondary btn-block editInside">Add Dish
+
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+            </div>
+    </form>             
+</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade modalEditClass" id="editModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Edit Non Paid Order</h4>
+          <button type="button" id="close-edit" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+<div class="modal-body mx-3 modal-inputs">
+
+    <form id="edit-NonPaidForm" method="PUT">
+
+            <div class="col-sm-10">
+                    <label for="exampleFormControlInput1">Order Status</label>
+                    </div>
+
+            <div class="md-form mb-5">
+                                    
+                    <select name="status" id="status" class="form-control">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="cooking">cooking</option>
+                            <option value="served">served</option>
+                            <option value="pending">pending</option>
+                            <option value="cooked">cooked</option>                                 
+                    </select>
+            </div>
+                <div class="col-sm-10">
+                    <label for="exampleFormControlInput1">Choose Cook</label>
+                </div>
+
+            <div class="md-form mb-5">
+                                    
+                    <select name="kitchen" id="kitchen" class="form-control">
+                            <option value="" disabled selected>Choose your option</option>
+                                                            
+                    </select>
+            </div>
+
+                <div class="col-sm-10">
+                    <label for="exampleFormControlInput1">Choose Served By</label>
+                    </div>
+
+                <div class="md-form mb-5">
+                                        
+                        <select name="served" id="served-by" class="form-control">
+                                <option value="" disabled selected>Choose your option</option>
+                                                                
+                        </select>
+                </div>           
+
+                <div class="col-sm-10">
+                        <label for="exampleFormControlInput1">Choose Table Number</label>
+                </div>
+            
+                <div class="md-form mb-5">
+                                        
+                        <select name="table" id="table-number" class="form-control">
+                                <option value="" disabled selected>Choose your option</option>
+                                                                
+                        </select>
+                </div> 
+
+                <div id= "quantity-danger" class="alert alert-danger alert-dismissible" style="display:none">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong></strong>
+                </div>
+
+        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+          <button id="edit-order" type="button" class="btn btn-outline-secondary btn-block editInside">Edit Order
+
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+            </div>
+    </form>            
+</div>
+      </div>
+    </div>
+  </div>
+
+
+        <div class="container">
+
+         <div class="card">
+             <div class="card-header">
+             </div>
+             <div class="card-body">
+                 <h5 class="card-title">Non Paid Orders</h5>
+                 <div class="row"> 
+                        
+                        <div id= "alert-success" class="alert alert-success alert-dismissible" style="display:none">
+                                                        
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong></strong>
+                        </div>
+                              <div id= "alert-danger" class="alert alert-danger alert-dismissible" style="display:none">
+                                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                      <strong></strong>
+                              </div> 
+    
+                          
+                    </div>
+                 <table id="dataTable" class="table table-light table-hover table-bordered" style="width: 100%;">
+                         <thead>
+                                 <tr>
+                                         <th>Order No</th>
+                                         <th>Customer Name</th>
+                                         <th>Table No</th>
+                                         <th>Served By</th>
+                                         <th>Order Value</th>
+                                         <th>Kitchen</h3></th>
+                                         <th>Status</th>
+                                         <th>Action</th> 
+
+                                 </tr>
+
+                             </thead>
+                         <tbody>
+                         </tbody>
+                 </table>
+             </div>
+         </div>
+
+         </div>
+ 
+<script src="/js/nonPaidOrders.js"></script>
+<%- include('footer'); %>

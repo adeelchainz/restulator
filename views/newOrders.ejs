@@ -1,0 +1,371 @@
+<%- include('header',{role:role}); %>
+<div class="col-sm-10" style="  margin-top: 10px; ">
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="modal-title">
+                 
+               </h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+            </div>
+         </div>
+      </div>
+    </div>  
+
+  <div class="modal fade modalEditClass" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">DELETE DISH</h4>
+          <button type="button" id="close-delete" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+<div class="modal-body mx-3 modal-inputs">
+
+    <form id="del-dish-form" method="DELETE">
+           
+                    <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="formNameEdit15">Are you sure to delete this dish?</label>
+                          </div>      
+        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+          <button id="del-dish" formmethod="DELETE" type="button" class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">DELETE Dish
+
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+            </div>
+    </form>            
+</div>
+      </div>
+    </div>
+  </div>
+<div class="modal fade modalEditClass" id="myModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">ADD DISH</h4>
+          <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+<div class="modal-body mx-3 modal-inputs">
+
+  <div class="modal-body">
+    <form id="editEmptForm">
+            <div class="col-sm-10">
+                    <label for="exampleFormControlInput1">Choose Dish Type</label>
+                    </div>
+
+            <div class="md-form mb-5">
+                                    
+                    <select id="dishType" name="dishType" class="form-control">
+                            <option value="" disabled selected>Choose your option</option>
+                                                            
+                    </select>
+            </div>
+                    <div class="col-sm-10">
+                            <label for="exampleFormControlInput1">Choose Dish</label>
+                            </div>
+
+                    <div class="md-form mb-5">
+                                            
+                            <select id="selectDish" name="selectDish" class="form-control">
+                                    <option value="" disabled selected>Choose your option</option>
+                                                                    
+                            </select>
+                    </div>
+
+                    <div class="md-form mb-5">
+                           <label data-error="wrong" data-success="right" for="formNameEdit15">Quantity</label>
+                            <input type="number" name="qty" id="qty" class="form-control validate">                          
+                          </div>
+                    <div class="row">
+                      <p>Maximum Dishes that can be added:</p>
+                          <div id="check-quantity" class="md-form">                          
+                          </div>
+                      </div>     
+                          <div class="md-form mb-5">
+                            <input type="text" name="price" id="price" class="form-control validate" readonly>
+                            <label data-error="wrong" data-success="right" for="formPositionEdit15">Price</label>
+                          </div>
+                          <div class="md-form mb-5">
+                            <input type="text" id="total-price" class="form-control validate" readonly>
+                            <label data-error="wrong" data-success="right" for="formOfficeEdit15">Total Price</label>
+                          </div>
+
+                          <div id= "dish-danger" class="alert alert-danger alert-dismissible"style="display:none">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong></strong>
+                    </div>
+                    
+                    <div id= "success-dish" class="alert alert-success alert-dismissible" style="display:none">
+                                                        
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong></strong>
+              </div>
+
+        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+          <button id="editEmp"  type="button" class="btn btn-outline-secondary btn-block editInside">Add Dish
+
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+            </div>
+    </form>
+  </div>             
+</div>
+      </div>
+    </div>
+  </div>
+
+ 
+<div class="modal fade modalEditClass" id="editModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Edit DISH</h4>
+          <button type="button" id="close-edit" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+<div class="modal-body mx-3 modal-inputs">
+
+    <form id="editDishForm" method="PUT">
+
+                    <div class="md-form mb-5">
+                            <input type="text" id="dish-type" class="form-control validate" readonly>
+                            <label data-error="wrong" data-success="right" for="formNameEdit15">Dish Type</label>
+                          </div>
+
+                            <div class="md-form mb-5">
+                                    <input type="text" id="dish-name" class="form-control validate" readonly>
+                                    <label data-error="wrong" data-success="right" for="formNameEdit15">Dish Name</label>
+                            </div>
+                    <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="formNameEdit15">Quantity</label>
+                            <input type="number" step="1" name="quantity" id="dish-quantity" class="form-control validate">                          
+                    </div>
+                    <div class="row">
+                      <p>Maximum Dishes that can be added:</p>
+                          <div id="check-quantity2" class="md-form">                          
+                          </div>
+                      </div>   
+                          <div class="md-form mb-5">
+                            <input type="text" id="dish-price" class="form-control validate" readonly>
+                            <label data-error="wrong" data-success="right" for="formPositionEdit15">Price</label>
+                          </div>
+                          <div class="md-form mb-5">
+                            <input type="text" id="dish-totalPrice" class="form-control validate" readonly>
+                            <label data-error="wrong" data-success="right" for="formOfficeEdit15">Total Price</label>
+                          </div>
+
+                          <div id= "dish-danger2" class="alert alert-danger alert-dismissible" style="display:none">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong></strong>
+                    </div>
+                    
+                    <div id= "success-dish2" class="alert alert-success alert-dismissible" style="display:none">
+                                                        
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong></strong>
+              </div>
+
+        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+          <button id="editDish" type="button" class="btn btn-outline-secondary btn-block editInside">Edit Dish
+
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+            </div>
+    </form>            
+</div>
+      </div>
+    </div>
+  </div>
+
+        <div class="container">                             
+                <form id="addOrderForm" method="POST">
+                        <div class="form-row">
+                          <div class="form-group col-md-3">
+                            <label for="exampleFormControlInput1">Choose Table </label>
+                            <!-- <input type="number" class="form-control" id="select-table" placeholder="1" required> -->
+                            <select id="select-table" class="form-control" required >
+                                <option value="" disabled selected>Choose your option</option>
+
+                            </select>                                  
+                          </div>
+
+
+                                     <div class="form-group col-md-3">
+                                        <label for="exampleFormControlInput1">Customer</label>
+                                        <select  id="customer" class="form-control" required>
+                                        <option value="" disabled selected>Choose your option</option>
+                                        </select>
+                                        <a href="/add-customer" class="btn btn-link" role="button" aria-pressed="true">Add New Customer</a>
+                                      </div>
+
+                                      
+
+                                      <div class="form-group col-md-3">
+                                        <label for="exampleFormControlInput1">Cook</label>
+                                        <select id="cook" class="form-control" required>
+                                        <option value="" disabled selected>Choose your option</option>
+                                        </select>
+                                      </div>
+
+                        </div>
+
+                        <div class="form-row">
+                                <div class="form-group col-md-3">
+                                        <label for="exampleFormControlInput1">Waiter</label>
+                                        <select id="waiter" class="form-control" required>
+                                        <option value="" disabled selected>Choose your option</option>
+                                        </select>
+                                      </div>
+
+                                      <div class="form-group col-md-3">
+                                        <label for="exampleFormControlInput1">Order Status</label>
+                                        <select id="order-status"  class="form-control" required>
+                                                <option value="" disabled selected>Choose your option</option>
+                                                <option value="pending">pending</option>
+                                                <option value="cooking">cooking</option>
+                                                <option value="cooked">cooked</option> 
+                                                <option value="served">served</option>                                                               
+                                        </select>
+
+                                      </div>
+
+                                      <div class="form-group col-md-3">
+                                                <label for="exampleFormControlInput1">Order Time</label>
+
+                                              <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                                      <input type="text" class="form-control datetimepicker-input" name="order" id="order-time" data-target="#datetimepicker1" required/>
+                                                      <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                      </div>
+                                              </div>
+                                      </div>
+
+                                      <div class="form-group col-md-3">
+                                        <label for="exampleFormControlInput1">Complete Time</label>
+
+                                      <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                                              <input type="text" class="form-control datetimepicker-input" name="complete" id="complete-time" data-target="#datetimepicker2" required/>
+                                              <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                              </div>
+                                      </div>
+                              </div>
+                        </div>
+                        <div class="form-row">
+                                <div class="form-group">
+                                <button type="button"  data-target="#myModal"  data-toggle="modal" class="btn btn-primary mb-2" id="addDish">Add Dish</button>
+                                </div>
+                                                 
+                                        <div class="form-group col-sm-3">
+                                                <button type="button" id="cancel" class="btn btn-danger mb-2">Cancel</button>
+                                        </div>                                                             
+                                   
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success mb-2" id="addOrder">Add Order</button>
+                                                </div>
+
+                                        <div class="form-group ml-auto">
+                                        <button type="button" class="btn btn-primary mb-2" id="view-order">View Order</button>
+                                       </div>
+
+                                       <div id= "error-date" class="alert alert-danger alert-dismissible" style="display:none">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>Order Completion time should be greater than Order time</strong>
+                                      </div>
+
+                                      <div id= "error-dishes" class="alert alert-danger alert-dismissible" style="display:none">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>Please Select any dish with addDish for the order</strong>
+                                      </div>
+                                </div>
+                                <div id= "alert-danger" class="alert alert-danger alert-dismissible" style="display:none">
+                                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                  <strong></strong>
+                          </div>  
+
+                                <div id= "alert-success2" class="alert alert-success alert-dismissible" style="display:none">
+                                                        
+                                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                  <strong>Order Successfully Placed!</strong>
+                          </div>
+
+                          <div id= "dish-success" class="alert alert-success alert-dismissible" style="display:none">
+                                                        
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong></strong>
+                    </div>
+                          
+
+        </form>
+                <div class="card" >
+                        
+                        <div class="card-header">
+                                <div class="row"> 
+                                  <div class="col-sm-8">
+                                        Orders
+                                  </div>
+                                  
+                                <div class="col-sm-2">
+                                        Total Bill
+                                </div>
+                                <div class="col-sm-2" id="total-bill">
+                                  
+                                </div>
+                                    
+                              </div>
+                              <div class="row">
+                                <div class="col-sm-8">
+
+                                </div>
+                                <div class="col-sm-2">
+                                  Tax
+                                </div>
+                                
+                                <div class="col-sm-1" id="tax">
+                                </div>
+                                <div class="col-sm-1">
+                                  %
+                                </div>
+
+
+                              </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Order</h5>
+                            <div class="table-responsive">
+                              <table id="dataTable" class="table table-light table-hover table-bordered" style="width: 100%;">
+                                <thead>
+                                        <tr>
+                                                <th>Id</th>
+                                                <th>Dish Name</th>
+                                                <th>Type</th>
+                                                <th>Quantity</th>
+                                                <th>Price</h3></th>
+                                                <th>Total Price</th> 
+                                                <th>Action</th> 
+
+                                        </tr>
+
+                                    </thead>
+                                <tbody>
+                                </tbody>
+                        </table>
+                            </div>
+                            
+        </div>
+</div>
+</div>
+</div>
+
+<script src="/js/newOrders.js"></script>
+<%- include('footer'); %>

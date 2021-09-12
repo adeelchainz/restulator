@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            
+        <link rel="stylesheet" type="text/css" href=".\css\bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href=".\css\styles.css">    
+    
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+            
+        <script src="js/jquery-2.2.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+           
+            
+        
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+        <script src="js/supplier.js"></script>
+        <script src = "js/jquery.tabledit.js"></script>         
+        <title>Restulator</title>
+    </head> 
+
+    <body>
+        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-danger fixed -top">
+            
+            <a href="#" class="navbar-brand navbar-text ">Restulator</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+    
+            </button>     
+
+            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
+                <ul class="navbar-nav  ">
+                        <li class="nav-item"> <a href="#" class="nav-link">New Order</a></li>
+
+        
+                        
+                    
+                </ul>
+
+
+            </div>
+
+        </nav>
+
+        <diV class="container-fluid">
+
+                <div class="row">
+
+                        <div class="col-sm-2  "style="margin:0px; padding: 0px;" >      
+                                <div class="sidebar">
+                                        <h6 class="sidebarHeading">Navigation</h6>
+                                        <a href="login.html" class="active">Dashboard</a>
+                                        <a href="#">Reports</a>
+                                        <a href="#" class="dropdown-btn">Kitchen<i class="fa fa-angle-right"></i> </a>
+                                                <div class="dropdown-container">
+                                                        <a href="#">Live Kitchen</a>
+
+                                                </div>                                        
+                                        <a href="#" class="dropdown-btn">Orders<i class="fa fa-angle-right"></i> </a>                                               
+                                                <div class="dropdown-container">
+                                                        <a href="#">New Order</a>
+                                                        <a href="#">All Order</a>
+                                                        <a href="#">Non-Paid Order</a>
+                                                </div>
+                                        
+                                        <a href="supplier.html">Supplier</a>
+                                        <a href="#" class="dropdown-btn">Accounting <i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="#" class="dropdown-btn"> Expense <i class="fa fa-angle-right"></i></a>
+                                                                <div class="dropdown-container">
+                                                                        <a href="#">Add Expense</a>
+                                                                        <a href="#">All Expense</a>
+                                                                </div>
+
+
+                                                        
+                                                        <a href="#">Income</a>
+                                                </div>
+
+                                        
+                                        <a href="#">Table Management</a>
+                                        <a href="#" class="dropdown-btn">Stock Management<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="#" >New Purses</a>
+                                                        <a href="#">All Purses</a>
+                                                        <a href="addItem.html">Add Item</a>
+                                                        <a href="#">All Stock</a>
+
+                                                </div>                                        
+                                        <a href="#" class="dropdown-btn">Dish<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="#" >Add dish</a>
+                                                        <a href="#">All Dish</a>
+                                                </div> 
+                                                
+                                        <h6 class="sidebarHeading">More</h6>
+                                        <a href="#" class="dropdown-btn">Employee<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="/addEmployee.html" >Add Employee</a>
+                                                        <a href="/allEmployee.html">All Employee</a>
+                                                </div>
+                                        <a href="#" class="dropdown-btn">Setings<i class="fa fa-angle-right"></i></a>                                                
+
+
+
+
+
+                                        
+                                </div>
+                        </div>
+                        <div class="col-sm-8 offset-2 " style="margin-left:55px; margin-top: 10px;" >
+
+                                <div class="container">
+
+                                
+                                        <form id="formSupplier" action="#">
+                                                <div class="form-row">
+                                                  <div class="form-group col-md-6">
+                                                    <label for="inputSupplierName">Name</label>
+                                                    <input type="text" class="form-control" id="inputSupplierName" placeholder="Supplier/Company Name" required>
+                                                  </div>
+                                                  <div class="form-group col-md-6">
+                                                    <label for="inputSupplierCnic">CNIC</label>
+                                                    <input type="text" class="form-control" id="inputSupplierCnic" minlength="15" maxlength="15" placeholder="XXXXX-XXXXXXX-X" required>
+                                                  </div>
+                                                </div>
+                                                <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                          <label for="inputSupplierMobile">Mobile</label>
+                                                          <input type="text" class="form-control" id="inputSupplierMobile" minlength="11" maxlength="11" placeholder="XXXX-XXXXXXX" required>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                          <label for="inputSupplierTelephone">Telephone</label>
+                                                          <input type="text" class="form-control" id="inputSupplierTelephone" minlength="11" maxlength="11" placeholder="XXXX-XXXXXXX" required>
+                                                        </div>
+                                                      </div>
+                                                <div class="form-group">
+                                                  <label for="inputSupplierDesc">Address</label>
+                                                  <textarea class="form-control" id="inputSupplierAddress" rows="3" placeholder="Detailed Address of the Supplier/Company" required></textarea>
+                                                </div>
+                                                <div class="col text-center">
+                                                   <button id= "btn" type="submit" class="btn btn-primary">Add Supplier</button>
+                                                </div>
+                                                <div id= "alert-success" class="alert alert-success alert-dismissible" >
+                                                        
+                                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                        <strong>Supplier Successfully Inserted!</strong>
+                                                </div>
+                                                <div id= "alert-danger" class="alert alert-danger alert-dismissible">
+                                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                        <strong>Supplier could not be Inserted, Check your connection and try again!</strong>
+                                                </div>
+                                        </form>
+
+                                        <table id="dataTable" class="display" style="width:100%" >
+                                                <thead>
+                                                    <tr>
+                                                        <th>No.</th>
+                                                        <th>Name</th>
+                                                        <th>CNIC</th>
+                                                        <th>Mobile</th>
+                                                        <th>Telephone</th>
+                                                        <th>Address</th>
+                                                        <th>Action</th>
+                                                        <th>View</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                </div>
+        
+                        </div>
+                </div>
+
+        </div>
+
+
+
+        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                                <h3>Delete Suppplier</h3>
+                        </div>
+                        <div class="modal-body">
+                              <p id="delete-body">Are you sure you want to delete supplier named: </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="cancal-btn" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-danger btn-ok" id="delete-btn">Delete</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+
+        <div class="modal fade modalEditClass" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header text-center">
+                      <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Edit Supplier Details</h4>
+                      <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  <div class="modal-body mx-3 modal-inputs">
+                        <form id="editSuppForm" method="PUT" enctype="multipart/form-data">
+                                <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="formNameEdit">Name</label>
+                                <input type="text" id="formNameEdit" class="form-control validate" required>
+                                </div>
+                                <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="formnicEdit">CNIC</label>
+                                <input type="text" id="formNicEdit" class="form-control validate" minlength="15" maxlength="15" required>
+                                </div>
+                                <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="formMobileEdit">Mobile</label>
+                                <input type="text" id="formMobileEdit" class="form-control validate" minlength="11" maxlength="11" required>
+                                </div>
+                                <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="formTelephoneEdit">Telephone</label>
+                                <input type="text" id="formTelephoneEdit" class="form-control validate" minlength="11" maxlength="11" required>
+                                </div>
+                                <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="formAddressEdit">Address</label>
+                                <textarea type="text" rows="2" id="formAddressEdit" class="form-control validate" required></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                <input id="editEmp" formmethod="PUT" type="submit" class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal" value="Edit Supplier">
+                                <i class="far fa-paper-plane ml-1"></i>
+                                </div>
+                        </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+<div class="modal fade" id="suppliesModal" style="width: 95%;" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+                <h4>Supplies</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <div class="responsive-table" style="width:100%;margin:30px">
+                <table class="table table-bordered" style="margin-bottom:2em" id="suppliesTable">
+                        <thead>
+                            <tr>
+                                <th >No.</th>
+                                <th>Supplier</th>
+                                <th>Date</th>
+                                <th>Bill</th>
+                                <th>Paid</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!-- <script src="js/jquery-2.2.3.min.js"></script> -->
+        <!-- <script src="./js/jquery-3.4.1.js"></script>  
+         -->
+    </body>
+
+</html>

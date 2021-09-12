@@ -1,0 +1,125 @@
+<%- include('header',{role:role}); %>
+
+<div class="col-sm-10 " style=" margin-top: 10px; ">
+    <div class="container">
+
+        <h3 style="text-align: center;padding: 50px;">Add Customer</h3>
+      
+              <form id="formCustomer" action="#" style="padding-bottom: 40px;">
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputName">Full Name</label>
+                          <input type="text" class="form-control" id="inputName" placeholder="Customer Name" required>
+                        </div>
+                        <div class="form-group col-md-6" style="padding-bottom: 30px;">
+                          <label for="inputEmail">Email</label>
+                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                          <small id="emailHelp" class="form-text text-muted">optional</small>
+                        </div>
+                      </div>
+                      <div class="col text-center">
+                         <button id= "btn" type="submit" class="btn btn-primary">Add Customer</button>
+                      </div>
+              </form>
+
+              <h3 style="text-align: center;padding: 30px;">All Customers</h3>
+
+              <table id="dataTable" class="display" style="width:100%" >
+                      <thead>
+                          <tr>
+                              <th>No.</th>
+                              <th>Name</th>
+                              <th>Email</th>
+                              <th>Points</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tfoot>
+                          <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                          </tr>
+                      </tfoot>
+                  </table>
+
+
+
+                  <!-- Delete modal -->
+                  <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                    <h3>Delete Customer</h3>
+                            </div>
+                            <div class="modal-body">
+                                  <p id="delete-body">Are you sure you want to delete customer named: </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="cancal-btn" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-danger btn-ok" id="delete-btn">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                       <div class="modal-content">
+                          <div class="modal-header">
+                             <h5 class="modal-title" id="modal-title">
+                               
+                             </h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                             </button>
+                          </div>
+                          <div class="modal-body" id="modal-body">
+                          </div>
+                       </div>
+                    </div>
+                  </div>
+
+
+
+                <!-- Edit Modal -->
+                <div class="modal fade modalEditClass" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                     <div class="modal-content">
+                        <div class="modal-header text-center">
+                           <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Edit Customer Details</h4>
+                           <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+
+                        <div class="modal-body mx-3 modal-inputs">
+                           <form id="editCustForm" action="#">
+                              <div class="md-form mb-5">
+                                 <label data-error="wrong" data-success="right" for="formNameEdit">Name</label>
+                                 <input type="text" name="formNameEditName" id="formNameEdit" class="form-control validate" required>
+                              </div>
+                              <div class="md-form mb-5">
+                                 <label data-error="wrong" data-success="right" for="formnicEdit">Email</label>
+                                 <input type="email" name="formEmailEditName" id="formEmailEdit" class="form-control validate">
+                                 <small id="emailHelp" class="form-text text-muted">optional</small>
+                              </div>
+                              <div class="modal-footer">
+                                 <div class="col text-center">
+                                    <input id= "editCust" type="button" class="btn btn-outline-secondary btn-block editInside" value="Edit Customer">
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+      </div>
+</div>
+<script src="/js/add-customer.js"></script>
+<%- include('footer'); %>

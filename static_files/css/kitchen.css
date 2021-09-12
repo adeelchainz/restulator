@@ -1,0 +1,22 @@
+.card {
+    padding: 1rem;
+    border: 1px solid black;
+    margin: 1rem;
+    }
+
+h6 {
+    padding-bottom: 10px;
+}
+li:nth-child(even){
+    background:#D3D3D3;
+}
+ul{
+    overflow:auto;max-height:110px
+}
+
+p[id*="timer"] {
+    color: tomato;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}

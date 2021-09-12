@@ -1,0 +1,81 @@
+<%- include('header',{role:role}); %> 
+<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.7.1/themes/dark_turquoise.min.js"></script>
+
+<div class="col-sm-10 " style=" margin-top: 10px; ">
+
+    <div style="padding-bottom: 40px;">
+        <!-- Label for dropdown -->
+        <label for="select-list-dropdown" style="font-weight: bold;font-size: large; padding-right: 30px;" >Cook</label>
+
+        <!-- dropdown -->
+        <select class="browser-default custom-select" id="select-list-dropdown" style="width:80%;">
+            <option selected>All Cooks</option>
+        </select>
+    </div>
+
+ 
+    <!-- Datetime picker -->
+
+    <div class="input-group" style="padding-bottom: 10px;">
+
+    <!-- Label for Datetime picker -->
+
+        <div class="input-group-prepend">
+            <span class="input-group-text">Start Date</span>
+        </div>
+        <!-- Datetime picker -->
+        <input class ="form-control" id="date1" name="date1" placeholder="MM/DD/YYYY" type="text" style="padding-right: 30px;" width="30%"/>
+
+        <div class="input-group-prepend"style="padding-left: 30px;">
+            <span class="input-group-text">End Date</span>
+        </div>
+        <!-- Datetime picker -->
+        <input class ="form-control" id="date2" name="date2" placeholder="MM/DD/YYYY" type="text"/>
+ 
+    </div>  
+
+    <div id="error" style="padding-bottom: 50px;color: darkred;margin: 0 auto;width: 40%;font-weight: bold;font-size: medium;"></div>
+
+    <!-- Get Report Button -->
+    <div><button type="button" id="btn" class="btn btn-info" style="margin: 0 auto;display: block;">Get Report</button></div>
+
+
+
+    
+
+
+
+
+    <!-- bar chart container -->
+    <div id="container" style="width: 60%; height: 400px; display: block; margin: 0 auto; margin-top: 50px;"></div>
+
+    <div>
+        <div id="multipleDatatables"></div>
+        <h5 id="dataTableHeading"></h5>
+        <table id="dataTable" class="display" style="width:100%;">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Customer</th>
+                    <th>Cook</th>
+                    <th>Waiter</th>
+                    <th>Total Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="/js/cook-report.js"></script>
+<%- include('footer'); %>

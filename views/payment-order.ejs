@@ -1,0 +1,315 @@
+<%- include('header'); %>
+<div class="col-sm-10" style="  margin-top: 10px; ">
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="modal-title">
+                 
+               </h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+            </div>
+         </div>
+      </div>
+    </div>  
+
+
+  <div class="modal fade modalEditClass" id="add-review" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Add Review</h4>
+          <button type="button" id="close-edit" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+<div class="modal-body mx-3 modal-inputs">
+
+    <form id="add-review-form" method="POST">
+
+                    <div class="md-form mb-5">
+                          <label data-error="wrong" data-success="right" for="formNameEdit15">Rating</label>     
+                          <select id="order-rating" name="rating" class="form-control" required>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option> 
+                            <option value="4">4</option> 
+                            <option value="5">5</option>                                                              
+                          </select>
+                           
+                          </div>
+
+                          <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Review</label>
+                            <textarea class="form-control" name="ratingText" id="order-review" rows="4"></textarea>
+                          </div>
+                          
+
+        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+          <button id="addReviewButton"  type="button" class="btn btn-outline-secondary btn-block editInside">Add Review
+
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+            </div>
+    </form>            
+</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="modal fade modalEditClass" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">DELETE DISH</h4>
+          <button type="button" id="close-delete" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+<div class="modal-body mx-3 modal-inputs">
+
+    <form id="del-dish-form" method="DELETE">
+           
+                    <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="formNameEdit15">Are you sure to delete this dish?</label>
+                          </div>      
+        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+          <button id="del-dish" formmethod="DELETE" type="button" class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">DELETE Dish
+
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+            </div>
+    </form>            
+</div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade modalEditClass" id="editModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Edit DISH</h4>
+          <button type="button" id="close-edit" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+<div class="modal-body mx-3 modal-inputs">
+
+    <form id="editDishForm" method="PUT">
+
+                    <div class="md-form mb-5">
+                          <label data-error="wrong" data-success="right" for="formNameEdit15">Dish Type</label>     
+                          <input type="text" id="dish-type" class="form-control validate" readonly>
+                           
+                          </div>
+
+                            <div class="md-form mb-5">
+                              <label data-error="wrong" data-success="right" for="formNameEdit15">Dish Name</label>      
+                              <input type="text" id="dish-name" class="form-control validate" readonly>
+                                    
+                            </div>
+                    <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="formNameEdit15">Quantity</label>
+                            <input type="text" name="quantity" id="dish-quantity" class="form-control validate" required>
+                            
+                          </div>
+
+                          <div class="row">
+                            <p>Maximum Dishes that can be added:</p>
+                                <div id="check-quantity" class="md-form">                          
+                                </div>
+                            </div>
+
+                          <div class="md-form mb-5">
+                            <input type="text" id="dish-price" class="form-control validate" readonly>
+                            <label data-error="wrong" data-success="right" for="formPositionEdit15">Price</label>
+                          </div>
+                          <div class="md-form mb-5">
+                            <input type="text" id="dish-totalPrice" class="form-control validate" readonly>
+                            <label data-error="wrong" data-success="right" for="formOfficeEdit15">Total Price</label>
+                          </div>
+
+                          <div id="dish-danger" class="alert alert-danger alert-dismissible"style="display:none">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong></strong>
+                    </div>
+                    
+                    <div id="success-dish" class="alert alert-success alert-dismissible" style="display:none">
+                                                        
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong></strong>
+              </div>
+
+        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+          <button id="editDish"  type="button" class="btn btn-outline-secondary btn-block editInside">Edit Dish
+
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+            </div>
+    </form>            
+</div>
+      </div>
+    </div>
+  </div>
+
+        <div class="container">                             
+            
+                <div class="card">
+                        
+                        <div class="card-header">
+                                <div class="row"> 
+                                  <div class="col-sm-8">
+                                    <ol class="col-12 breadcrumb">
+                                      <li class="breadcrumb-item"><a href="/orders/non-paid-orders">Non Paid Orders</a></li>
+                                      <li class="breadcrumb-item active">Ingredients</li>
+                                      <button id="review" class="btn btn-success ml-auto ">Add Review</button>
+                                      
+                                  </ol>
+                                  </div>
+                                  
+                                <div class="col-sm-2">
+                                        Total Bill
+                                </div>
+                                <div class="col-sm-2" id="total-bill">                                 
+                                </div>
+                                    
+                              </div>
+                              <div class="row">
+                                <div class="col-sm-8">
+
+                                </div>
+                                <div class="col-sm-2">
+                                  Tax
+                                </div>
+                                
+                                <div class="col-sm-1" id="tax">
+                                </div>
+                                <div class="col-sm-1">
+                                  %
+                                </div>
+
+
+                              </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Order</h5>
+                            <div class="table-responsive">
+                              <table id="dataTable" class="table table-light table-hover table-bordered" style="width: 100%;">
+                                <thead>
+                                        <tr>
+                                                <th>Id</th>
+                                                <th>Dish Name</th>
+                                                <th>Type</th>
+                                                <th>Quantity</th>
+                                                <th>Price</h3></th>
+                                                <th>Total Price</th> 
+                                                <th>Action</th> 
+
+                                        </tr>
+
+                                    </thead>
+                                <tbody>
+                                </tbody>
+                        </table>
+                            </div>
+                            
+        </div>
+</div>
+</div>
+    <form id="bill-payment-form">
+          <div class="row mt-5"> 
+            
+          <div class="col-md-2">
+                  Total Price:
+          </div>
+          <div class="col-md-2" id="total-price">                                 
+          </div>
+              
+          </div>
+          <div class="row">
+          <div class="col-md-2">
+            Tax:
+          </div>
+
+          <div class="col-md-1" id="tax1">
+          </div>
+          <div class="col-md-1">
+            %
+          </div>
+
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+              Bill:
+            </div>
+  
+            <div class="col-md-1" id="bill">
+            </div>
+            <div class="col-md-1">
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+              Payment:
+            </div>
+  
+            <div class="col-md-2">
+              <input type="number" class="form-control" id="payment" placeholder="1200" required>
+            </div>
+              
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+              Change:
+            </div>
+  
+            <div class="col-md-2 mt-1">
+              <input type="number" id="change" class="form-control validate" readonly>
+            </div>
+
+            <div id= "alert-danger" class="alert alert-danger alert-dismissible" style="display:none">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Payment should be greater than Bill</strong>
+            </div> 
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-sm-2 mt-4 offset-sm-1">
+              <button type="submit" class="btn btn-success">Make Payment</button>
+  
+            </div>
+
+            <div id= "alert-success" class="alert alert-success alert-dismissible mt-4" style="display:none">
+                                                        
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Payment Made Successfully</strong>
+          </div>
+          </div>
+         
+
+    </form>
+</div>
+
+</div>
+</div>
+
+
+<script src="/js/payment-order.js"></script>
+<%- include('footer'); %>

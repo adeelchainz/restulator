@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            
+            <link rel="stylesheet" type="text/css" href=".\css\bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href=".\css\styles.css">    
+    
+           
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+            
+
+            <script src="/socket.io/socket.io.js"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+            <script src="./js/jquery-3.4.1.js"></script>  
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>        
+            
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>
+
+
+            <title>Restulator</title>
+    </head> 
+
+    <body onload="getDishType()">
+
+        <div class="modal fade modalEditClass" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header text-center">
+                      <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">DELETE DISH</h4>
+                      <button type="button" id="close-delete" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+        <div class="modal-body mx-3 modal-inputs">
+
+                <form id="del-dish-form" method="DELETE">
+                       
+                                <div class="md-form mb-5">
+                                        <label data-error="wrong" data-success="right" for="formNameEdit15">Are you sure to delete this dish?</label>
+                                      </div>      
+                    <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+                      <button id="del-dish" formmethod="DELETE" type="button" class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">DELETE Dish
+        
+                        <i class="far fa-paper-plane ml-1"></i>
+                      </button>
+                        </div>
+                </form>            
+         </div>
+                  </div>
+                </div>
+              </div>
+        <div class="modal fade modalEditClass" id="myModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header text-center">
+                      <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">ADD DISH</h4>
+                      <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+        <div class="modal-body mx-3 modal-inputs">
+
+                <form id="editEmptForm" method="POST">
+                        <div class="col-sm-10">
+                                <label for="exampleFormControlInput1">Choose Dish Type</label>
+                                </div>
+
+                        <div class="md-form mb-5">
+                                                
+                                <select id="dishType" class="form-control" required >
+                                        <option value="" disabled selected>Choose your option</option>
+                                                                        
+                                </select>
+                        </div>
+                                <div class="col-sm-10">
+                                        <label for="exampleFormControlInput1">Choose Dish</label>
+                                        </div>
+
+                                <div class="md-form mb-5">
+                                                        
+                                        <select id="selectDish" class="form-control" required >
+                                                <option value="" disabled selected>Choose your option</option>
+                                                                                
+                                        </select>
+                                </div>
+
+                                <div class="md-form mb-5">
+                                        <input type="text" id="qty" class="form-control validate" required>
+                                        <label data-error="wrong" data-success="right" for="formNameEdit15">Quantity</label>
+                                      </div>
+                                      <div class="md-form mb-5">
+                                        <input type="text" id="price" class="form-control validate" readonly>
+                                        <label data-error="wrong" data-success="right" for="formPositionEdit15">Price</label>
+                                      </div>
+                                      <div class="md-form mb-5">
+                                        <input type="text" id="total-price" class="form-control validate" readonly>
+                                        <label data-error="wrong" data-success="right" for="formOfficeEdit15">Total Price</label>
+                                      </div>
+        
+                    <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+                      <button id="editEmp" formmethod="POST" type="submit" class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">Add Dish
+        
+                        <i class="far fa-paper-plane ml-1"></i>
+                      </button>
+                        </div>
+                </form>             
+         </div>
+                  </div>
+                </div>
+              </div>
+        <div class="modal fade modalEditClass" id="editModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header text-center">
+                      <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Edit DISH</h4>
+                      <button type="button" id="close-edit" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+        <div class="modal-body mx-3 modal-inputs">
+
+                <form id="editDishForm" method="PUT">
+
+                                <div class="md-form mb-5">
+                                        <input type="text" id="dish-type" class="form-control validate" readonly>
+                                        <label data-error="wrong" data-success="right" for="formNameEdit15">Dish Type</label>
+                                      </div>
+
+                                        <div class="md-form mb-5">
+                                                <input type="text" id="dish-name" class="form-control validate" readonly>
+                                                <label data-error="wrong" data-success="right" for="formNameEdit15">Dish Name</label>
+                                        </div>
+                                <div class="md-form mb-5">
+                                        <input type="text" id="dish-quantity" class="form-control validate" required>
+                                        <label data-error="wrong" data-success="right" for="formNameEdit15">Quantity</label>
+                                      </div>
+                                      <div class="md-form mb-5">
+                                        <input type="text" id="dish-price" class="form-control validate" readonly>
+                                        <label data-error="wrong" data-success="right" for="formPositionEdit15">Price</label>
+                                      </div>
+                                      <div class="md-form mb-5">
+                                        <input type="text" id="dish-totalPrice" class="form-control validate" readonly>
+                                        <label data-error="wrong" data-success="right" for="formOfficeEdit15">Total Price</label>
+                                      </div>
+        
+                    <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+                      <button id="editDish" formmethod="POST" type="submit" class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">Edit Dish
+        
+                        <i class="far fa-paper-plane ml-1"></i>
+                      </button>
+                        </div>
+                </form>            
+         </div>
+                  </div>
+                </div>
+              </div>
+
+              
+        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-danger fixed -top">
+            
+            <a href="#" class="navbar-brand navbar-text ">Restulator</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+    
+            </button>     
+
+            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
+                <ul class="navbar-nav  ">
+                        <li class="nav-item"> <a href="#" class="nav-link">New Order</a></li>                  
+                    
+                </ul>
+
+
+            </div>
+
+        </nav>
+
+        <diV class="container-fluid">
+
+                <div class="row">
+
+                        <div class="col-sm-2 px-2 position-fixed">        
+                                <div class="sidebar">
+                                        <h6 class="sidebarHeading">Navigation</h6>
+                                        <a href="login.html" class="active">Dashboard</a>
+                                        <a href="#">Reports</a>
+                                        <a href="#" class="dropdown-btn">Kitchen<i class="fa fa-angle-right"></i> </a>
+                                                <div class="dropdown-container">
+                                                        <a href="#">Live Kitchen</a>
+
+                                                </div>                                        
+                                        <a href="#" class="dropdown-btn">Orders<i class="fa fa-angle-right"></i> </a>                                               
+                                                <div class="dropdown-container">
+                                                        <a href="/newOrders.html">New Order</a>
+                                                        <a href="/allOrders.html">All Order</a>
+                                                        <a href="/nonPaidOrders.html">Non-Paid Order</a>
+                                                </div>
+                                        
+                                        <a href="#">Supplier</a>
+                                        <a href="#" class="dropdown-btn">Accounting <i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="#" class="dropdown-btn"> Expense <i class="fa fa-angle-right"></i></a>
+                                                                <div class="dropdown-container">
+                                                                        <a href="#">Add Expense</a>
+                                                                        <a href="#">All Expense</a>
+                                                                </div>                                                       
+                                                        <a href="#">Income</a>
+                                                </div>                                      
+                                        <a href="#">Table Management</a>
+                                        <a href="#" class="dropdown-btn">Stock Management<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="#" >New Purses</a>
+                                                        <a href="#">All Purses</a>
+                                                        <a href="addItem.html">Add Item</a>
+                                                        <a href="#">All Stock</a>
+
+                                                </div>                                        
+                                        <a href="#" class="dropdown-btn">Dish<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="/addDish.html" >Add dish</a>
+                                                        <a href="/allDish.html">All Dish</a>
+                                                </div> 
+                                                
+                                        <h6 class="sidebarHeading">More</h6>
+                                        <a href="#" class="dropdown-btn">Employee<i class="fa fa-angle-right"></i></a>
+                                                <div class="dropdown-container">
+                                                        <a href="/addEmployee.html" >Add Employee</a>
+                                                        <a href="/allEmployee.html">All Employee</a>
+                                                </div>
+                                        <a href="#" class="dropdown-btn">Setings<i class="fa fa-angle-right"></i></a>                                                
+                                        
+                                </div>
+                        </div>
+                        <div class="col-sm-10 offset-2" >
+                                <div class="container">                             
+                                        <form id="addOrderForm" method="POST">
+                                                <div class="form-row">
+                                                        <div class="form-group col-md-3">
+                                                          <label for="exampleFormControlInput1">Enter Table No</label>
+                                                          <input type="number" class="form-control" id="select-table" placeholder="1" required>
+                                                        </div>
+
+                                                             <div class="form-group col-md-3">
+                                                                <label for="exampleFormControlInput1">Customer</label>
+                                                                <select id="customer" class="form-control" required>
+                                                                <option value="" disabled selected>Choose your option</option>
+                                                                </select>
+                                                              </div>
+
+                                                              <div class="form-group col-md-3">
+                                                                <label for="exampleFormControlInput1">Cook</label>
+                                                                <select id="cook" class="form-control" required>
+                                                                <option value="" disabled selected>Choose your option</option>
+                                                                </select>
+                                                              </div>
+
+                                                              <div class="form-group col-md-3">
+                                                                <label for="exampleFormControlInput1">Payment Status</label>
+                                                                <select id="payment-status"  class="form-control" required>
+                                                                        <option value="" disabled selected>Choose your option</option>
+                                                                        <option value="non_paid">Non Paid</option>
+                                                                        <option value="paid">Paid</option>                                                              
+                                                                </select>
+                                                              </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                        <div class="form-group col-md-3">
+                                                                <label for="exampleFormControlInput1">Waiter</label>
+                                                                <select id="waiter" class="form-control" required>
+                                                                <option value="" disabled selected>Choose your option</option>
+                                                                </select>
+                                                              </div>
+
+                                                              <div class="form-group col-md-3">
+                                                                <label for="exampleFormControlInput1">Order Status</label>
+                                                                <select id="order-status"  class="form-control" required>
+                                                                        <option value="" disabled selected>Choose your option</option>
+                                                                        <option value="cooking">cooking</option>
+                                                                        <option value="served">served</option>
+                                                                        <option value="pending">pending</option>
+                                                                        <option value="cooked">cooked</option>                                                                
+                                                                </select>
+
+                                                              </div>
+
+                                                              <div class="form-group col-md-3">
+                                                                        <label for="exampleFormControlInput1">Order Time</label>
+        
+                                                                      <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                                                              <input type="text" class="form-control datetimepicker-input" id="order-time" data-target="#datetimepicker1" required/>
+                                                                              <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                                              </div>
+                                                                      </div>
+                                                              </div>
+
+                                                              <div class="form-group col-md-3">
+                                                                <label for="exampleFormControlInput1">Complete Time</label>
+
+                                                              <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                                                                      <input type="text" class="form-control datetimepicker-input" id="complete-time" data-target="#datetimepicker2" required/>
+                                                                      <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                                      </div>
+                                                              </div>
+                                                      </div>
+                                                </div>
+                                                <div class="form-row">
+                                                        <div class="form-group">
+                                                        <button type="button"  data-target="#myModal"  data-toggle="modal" class="btn btn-primary mb-2" id="addDish">Add Dish</button>
+                                                        </div>
+                                                                         
+                                                                <div class="form-group col-sm-3">
+                                                                        <button type="button" id="cancel" class="btn btn-danger mb-2">Cancel</button>
+                                                                </div>                                                             
+                                                           
+                                                            <div class="form-group ">
+                                                                <button type="submit" class="btn btn-success mb-2" id="addOrder">Add Order</button>
+                                                                        </div>
+        
+                                                                <div class="form-group col-md-3">
+                                                                <button type="button" class="btn btn-primary mb-2" id="view-order">View Order</button>
+                                                               </div>
+                                                        </div> 
+
+                                </form>
+                                        <div class="card" >
+                                                
+                                                <div class="card-header">
+                                                        <div class="row"> 
+                                                          <div class="col-sm-8">
+                                                                Orders
+                                                          </div>
+                                                          
+                                                        <div class="col-sm-2">
+                                                                Total Bill
+                                                        </div>
+                                                        <div id="total-bill">
+                                                        </div>                                                    
+                                                </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Order</h5>
+                                                    <table id="dataTable" class="table table-light table-hover table-bordered" style="width: 100%;">
+                                                            <thead>
+                                                                    <tr>
+                                                                            <th>Id</th>
+                                                                            <th>Dish Name</th>
+                                                                            <th>Type</th>
+                                                                            <th>Quantity</th>
+                                                                            <th>Price</h3></th>
+                                                                            <th>Total Price</th> 
+                                                                            <th>Action</th> 
+            
+                                                                    </tr>
+            
+                                                                </thead>
+                                                            <tbody>
+                                                            </tbody>
+                                                    </table>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        </div>
+
+        <script src="./js/newOrders.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <script src="./js/jquery-3.4.1.js"></script>   
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    </body>
+</html>

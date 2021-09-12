@@ -1,0 +1,182 @@
+<%- include('header',{role:role}); %>
+<div class="col-sm-10" style="  margin-top: 10px; ">
+
+   <!-- Modal -->
+   <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="modal-title">
+             </h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body" id="modal-body">
+          </div>
+       </div>
+    </div>
+  </div>  
+
+
+    <div class="modal fade modalEditClass" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">DELETE Employee</h4>
+              <button type="button" id="close-delete" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+<div class="modal-body mx-3 modal-inputs">
+
+        <form id="del-dish-form" method="DELETE">
+               
+                        <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="formNameEdit15">Are you sure to delete this Employee?</label>
+                              </div>
+                              
+
+            <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+              <button id="del-employee" formmethod="DELETE" type="button" class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">DELETE Employee
+
+                <i class="far fa-paper-plane ml-1"></i>
+              </button>
+                </div>
+        </form>        
+ </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade modalEditClass" id="myModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Edit Employee Details</h4>
+              <button type="button" id="close-edit" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+<div class="modal-body mx-3 modal-inputs">
+
+        <form id="editEmptForm" method="PUT" enctype="multipart/form-data">
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="formNameEdit15">Name</label>
+                <input type="text" name="name" id="name" class="form-control validate">
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="formPositionEdit15">Mobile</label>
+                <input type="text" name="mobile" id="mobile" minlength="11" maxlength="11" class="form-control validate">          
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="formOfficeEdit15">Address</label>
+                <input type="text" name="address" id="address" class="form-control validate">               
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="formOfficeEdit15">National Identity</label>
+                <input type="text" name="identity" id="national_identity" minlength="13" maxlength="13" class="form-control validate">              
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="formOfficeEdit15">Telephone</label>
+                <input type="text" name="telephone" id="telephone" minlength="11" maxlength="11" class="form-control validate">        
+              </div>
+              <div class="col-sm-10">
+                <label for="exampleFormControlInput1">Choose Gender</label>
+                </div>
+
+              <div class="md-form mb-5">
+                                      
+                      <select id="gender" name="gender" class="form-control">
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="M">M</option>
+                              <option value="F">F</option>                                  
+                      </select>
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="formOfficeEdit15">Salary</label>
+                <input type="number" name="salary" id="salary" class="form-control validate">               
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="formOfficeEdit15">Created At</label>
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                  <input type="text" class="form-control datetimepicker-input" name="empCreate" id="created_at" data-target="#datetimepicker1" />
+                  <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                  </div>
+                </div>       
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="formOfficeEdit15">Join Date</label>
+                <input type="datepicker" name="join" id="join_date" class="form-control date">               
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="formOfficeEdit15">Birth Date</label>
+                <input type="datepicker" name="birth" id="birth_date" class="form-control date">        
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="formOfficeEdit15">Branch Id</label>
+                <input type="number" name="branch" id="branch_id" class="form-control validate">              
+              </div>
+              
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="formAgeEdit15">Image</label>
+                <input id="image" type="file" accept="image/*" name="image">
+              </div>
+              
+                        <div class="col-sm-10">
+                                <label for="exampleFormControlInput1">Choose Employee Category</label>
+                                </div>
+
+                        <div class="md-form mb-5">
+                                                
+                                <select name="selectlist" id="selectlist" class="form-control" >
+                                        <option value="" disabled selected>Choose your option</option>
+                                                                        
+                                </select>
+                        </div>
+
+            <div class="modal-footer d-flex justify-content-center editInsideWrapper">
+              <button id="editEmp" type="button" class="btn btn-outline-secondary btn-block editInside">Edit
+                Employee
+                <i class="far fa-paper-plane ml-1"></i>
+              </button>
+                </div>
+        </form>
+ </div>
+          </div>
+        </div>
+      </div>
+
+
+
+        <div class="container">
+
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">All Employees</h5>
+                 <table id="dataTable" class="table table-light table-hover table-bordered" style="width: 100%;">
+                        <thead>
+                                <tr>
+                                        <th>ID</th>
+                                        <th>Image</th>
+                                        <th>Info</th>
+                                        <th>Role</h3></th> 
+                                        <th>Action</th> 
+
+                                </tr>
+
+                            </thead>
+                        <tbody>
+                        </tbody>
+                </table>
+
+            </div>
+        </div>   
+        </div>
+
+
+<script src="/js/allEmployee.js"></script>
+<%- include('footer'); %>

@@ -1,0 +1,131 @@
+<%- include('header',{role:role}); %>
+<div class="col-sm-10  " style="margin-top: 10px; ">
+
+    <div class="container">
+        <form id="salaryAddForm" method="POST" >
+
+                
+
+            <div class="form-group row">
+
+                    <div class="col-sm-2">
+                    <label for="exampleFormControlInput1">Select Employee </label>
+                    </div>
+                    <div class="col-sm-4">
+                            <select id="employee_selectlist" class="form-control" required data-error="Please select Employee">
+                                            <option value="" disabled selected>Choose Employee</option>
+
+                            </select>
+                    </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                        <label for="exampleFormControlInput1">Enter Salary Amount</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input type="number" class="form-buttoncontrol" name="salary_amount" id="salary_amount" min="1" step=1 placeholder= "E.g 30000" required>
+                </div>                                                
+
+            </div>  
+            
+            <div class="form-group row">
+                        <div class="col-sm-2">
+                        <label for="exampleFormControlInput1">Select Month and Year for Salary</label>
+                        </div>
+
+                        <div class="col-sm-4">
+                                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" id="datetimeSalary" data-target="#datetimepicker1" required/>
+                                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+            <div class="form-group row">
+
+                <div class="col-sm-2">
+                <label for="exampleFormControlInput1">Select status </label>
+                </div>
+                <div class="col-sm-4">
+                        <select id="salary_status_selectlist" class="form-control" required data-error="Please select status">
+                                        <option value="" disabled selected>Choose Salary Status</option>
+                                        <option value='paid'>paid</option>
+                                        <option value="unpaid">unpaid </option>
+                                        <option value="onleave">onleave</option>
+                                                                                                                                                                                                                                                                                                                                                                        
+                        </select>
+                </div>
+        </div>             
+                                  
+
+
+            <div class="form-group row">
+                    <div class="col-sm offset-sm-2">
+                    <button  id="salaryAdd"  type="submit" class="btn btn-success" formmethod="POST" >Add Salary</button>
+                    </div>
+            </div>
+        <div id= "alert-success" class="alert alert-success alert-dismissible" style="display: none;">
+                                                    
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Salary Successfully Inserted!</strong>
+        </div>
+        <div id= "alert-danger" class="alert alert-danger alert-dismissible" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Salary could not be Inserted, Check your connection and try again!</strong>
+        </div>            
+
+            
+
+
+
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src='/js/addExpense.js'></script>
+
+<%- include('footer'); %>

@@ -1,0 +1,94 @@
+<%- include('header',{role:role}); %>
+<div class="col-sm-10 " style="  margin-top: 10px; ">
+
+    <div class="container" style="min-height: 1000px;">
+            <div id="itemDeleteModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                    <!-- <h3 id="modalTitle"> </h3> -->
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <div class="modal-body" id="modalBody">
+
+                            </div>
+                            <div class="modal-footer">
+                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                            </div>
+                            </div>
+                    </div>
+            </div>                                        
+
+            <ul  class="nav nav-tabs" id="nav_items" role="tablist">
+                  </ul>
+
+                <div  class="tab-content">
+                        <div id="vegetable" class="container tab-pane active"><br>
+                                <div class="row">
+                                        <div class="col-sm-6">
+                                          <div class="card text-right">
+                                            <div class="card-body">
+                                              <div class="pull-left glyphicon glyphicon-leaf"style="color: #dc3545;">
+                                                <i class="fa fa-dollar-sign fa-2x"></i>                                              
+                                              </div>
+                                              <h5 class="card-title">Total Orders</h5>
+                                              <div id="total-orders" class="w-100"></div>
+                                    
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <div class="card text-right">
+                                            <div class="card-body">
+                                              <div class="pull-left glyphicon glyphicon-leaf"style="color: #dc3545;">
+                                                <i class="fa fa-shopping-cart fa-2x"></i>                                              
+                                              </div>
+                                              <h5 class="card-title">Orders Today</h5>
+                                              <div id="orders-today" class="w-100"></div>   
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-6 mt-3">
+                                          <div class="card text-right">
+                                            <div class="card-body">
+                                              <div class="pull-left glyphicon glyphicon-leaf"style="color: #dc3545;">
+                                                <i class="fa fa-utensils fa-2x"></i>                                              
+                                              </div>
+                                              <h5 class="card-title">Pending Orders To Kitchen</h5>
+                                              <div id="pending-orders" class="w-100"></div>          
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-6 mt-3">
+                                          <div class="card text-right">
+                                            <div class="card-body">
+                                              <div class="pull-left glyphicon glyphicon-leaf"style="color: #dc3545;">
+                                                <i class="fa fa-shopping-cart fa-2x"></i>                                              
+                                              </div>
+                                              <h5 class="card-title">Pending Orders To Serve</h5>
+                                              <div id="serving-orders" class="w-100"></div> 
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+
+                        </div>
+                       
+                    </div>
+
+                   
+    </div>
+    </div>
+  
+  
+  
+  
+  
+  </div>
+</div>
+
+<script src="/js/dashboard.js"></script>
+<%- include('footer'); %>

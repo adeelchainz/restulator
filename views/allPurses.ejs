@@ -1,0 +1,197 @@
+
+
+    <%- include('header',{role:role}); %> 
+    
+
+                        <div class="col-sm-10" style=" margin-top: 10px; ">
+
+                                <div class="container" width="100%">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">All Purses</h5>
+                                            <div class="table-responsive">
+
+
+                                            
+                                            <table id="supplies_dataTable" class=" display table-light table-hover table-bordered"  >
+                                                    <thead>
+                                                            <tr>
+                                                                    <th >ID</th>
+                                                                    <th >Supplier Name</th>
+                                                                    <th >Supply Date</th>
+                                                                    <th >Item Name</th> 
+                                                                    <th >Quantity</th>
+                                                                    <th >Unit Price</th>
+                                                                    <th >Bill</th>
+                                                                    <th >Payment Amount</th>
+                                                                    <th >Payment Status</th> 
+                                                                    <th >Action</th>
+    
+                                                            </tr>
+    
+                                                        </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                            </table>
+                                            <div id="supplyDeleteModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <!-- <h3 id="modalTitle"> </h3> -->
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        </div>
+                                                        <div class="modal-body" id="modalBody">
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="supplyEditModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 id="modalTitle"> Edit Supply</h3>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        </div>
+                                                        <div class="modal-body" id="modalBody">
+                                                                <div class="container-fluid">
+                                                                        <form id="supplyEditForm" >
+                                                                                <div class="form-group">
+                                                                                        <label for="exampleFormControlInput1">Choose Supplier </label>
+                                                                                        <!-- <input type="text" class="form-control" id="supplierName_edit" > -->
+                                                                                        <div class="row">
+                                                                                                        <div class="col-sm-6">
+                                                                                                                <select id="supplierName_editlist" class="form-control validate" required >
+                                                                                                                                <!-- <option value="selectedItem" selected id="supplierNameEdit"></option> -->
+                
+                                                                                                                </select>
+                                                                                                        </div>
+                                                                                                        <!-- <div class="col-sm-2">
+                                                                                                                <button type="button" class="btn btn-danger btn-sm" onclick="fillSuppliers()">Change Supplier</button>                                                                                                    
+ 
+                                                                                                        </div> -->
+
+
+
+                                                                                                </div>                                                                                        
+                                                                                            
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                                <label for="exampleFormControlInput1">Supply At</label>
+                                                                                                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                                                                                                <input type="text" class="form-control datetimepicker-input validate" name="datetimeSupplyEdit" id="datetimeSupplyEdit" data-target="#datetimepicker1" />
+                                                                                                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                                                                                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                                                                                </div>
+                                                                                                </div>                                                                                                    
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                                <label for="exampleFormControlInput1">Item Name</label>
+                                                                                                <div class="row">
+                                                                                                        <div class="col-sm-6">
+                                                                                                                <select id="items_editlist" class="form-control validate" required >
+                                                                                                                                <!-- <option value="selectedItem" selected id="itemEditName"></option> -->
+                
+                                                                                                                </select>
+                                                                                                        </div>
+                                                                                                        <!-- <div class="col-sm-2">
+                                                                                                                <button type="button" class="btn btn-danger btn-sm" onclick="fillItems()">Change Item</button>                                                                                                    
+ 
+                                                                                                        </div> -->
+
+
+
+                                                                                                </div>
+
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                        <label for="exampleFormControlInput1">Quantity</label>
+                                                                                        <input type="number" class="form-control validate" name="quantityEdit" id="quantityEdit" min=1 step=1 onchange="calculateBill()">
+                                                                                                
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                        <label for="exampleFormControlInput1">Unit Price</label>
+                                                                                        <input type="number" class="form-control validate" name="unitPriceEdit"  id="unitPriceEdit" step=1 onchange="calculateBill()">
+                                                                                                    
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                        <label for="exampleFormControlInput1">Bill</label>
+                                                                                        <div class="row">
+                                                                                                <div class="col-sm-4">
+                                                                                                        <input type="text" class="form-buttoncontrol validate" name="billAmountEdit" id="billAmountEdit"  readonly >
+
+                                                                                                </div>
+                                                                                                <div class="col-sm-2">
+                                                                                                        <button type="button" class="btn btn-danger btn-sm" onclick="calculateBill()">Calculate Bill</button>
+
+                                                                                                </div>
+
+                                                                                        </div>                                                                                                    
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                        <label for="exampleFormControlInput1">Payment</label>
+                                                                                        <input type="number" class="form-control validate" step=1 name="paymentAmountEdit" id="paymentAmountEdit" >
+                                                                                                            
+                                                                                </div> 
+                                                                                <div class="form-group">
+                                                                                                <label for="exampleFormControlInput1">Payment Status</label>
+                                                                                                <select id="paymentStatus_editlist" class="form-control validate" required >
+                                                                                                                <!-- <option value="" selected id="paymentStatusEdit"></option> -->
+                                                                                                                <option value="paid">Paid</option>
+                                                                                                                <option value="unpaid">Unpaid</option>
+                                                                                                                <option value="balance" >Balance</option>
+                                                                                                                <option value="due">Due</option>
+
+                                                                                                </select>
+                                                                                                            
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                                <!-- <div class="col-sm offset-sm-2"> -->
+                                                                                                <button  id="supplyEditButton"  type="button"  class="btn btn-success"  > Save Changes </button>
+                                                                                                <!-- </div> -->
+                                                                                </div>                                                                                                                                                                                                                                                                                                                                                                                                               
+
+
+
+
+
+
+                                                                        </form>
+
+
+
+                                                                </div>
+
+                                                        </div>
+                                                        <div class="modal-footer" id="modalFooter">
+                                                            <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+    
+                                        </div>
+                                    </div>                                
+                                </div>        
+                        </div>
+                </div>
+        </div>
+        <script src="/js/allPurses.js"></script>
+
+
+
+
+
+        <%- include('footer'); %>
+
+
+
+        
+

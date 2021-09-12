@@ -1,0 +1,139 @@
+<%- include('header',{role:role}); %> 
+
+<div class="col-sm-10" style=" margin-top: 10px; ">
+
+    <div class="container" width="100%">
+            <div class="row">
+                    <div class="col-sm-4 ">
+                        <div class="card card-accent-dark bg-light">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                            <span class="glyphicon glyphicon-leaf"style="color: #dc3545;"><i class="fa fa-dollar-sign fa-2x"></i></span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h5 class="card-title" id="total_sell">$0.0</h5>
+                                        <p class="card-text">Today's sell</p>
+            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-sm-4 ">
+                            <div class="card card-accent-dark bg-light">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                                <span class="rounded" style="color: #dc3545;"><i class="fa fa-shopping-cart fa-2x"></i></span>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <h5 class="card-title" id="total_purses">$0.0</h5>
+                                            <p class="card-text">Today's purses</p>
+                    
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                      </div>     
+                      <div class="col-sm-4 ">
+                            <div class="card card-accent-dark bg-light">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                                <span class="glyphicon glyphicon-leaf" style="color: #dc3545;"><i class="fa fa-chart-bar fa-2x"></i></span>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <h5 class="card-title" id="total_orders">0</h5>
+                                            <p class="card-text">Today's orders</p>
+                    
+                                        </div>
+                                    </div>
+                                </div>
+                          </div>
+                          </div>
+                </div>
+                
+                <div class="col-sm-12" style="margin-top: 20px;">
+                    <div class="card-box">
+                            <h4 class="text-dark header-title m-t-0" id='dish_sells' style="font-size: 16px;"></h4>
+                            <div id="dish_sells_chart" style="height: 303px;">
+
+                            </div>
+
+
+                    </div>
+
+                </div> 
+                <div class="col-sm-12" style="margin-top: 20px;">
+                    <div class="card-box">
+                            <h4 class="text-dark header-title m-t-0" id = "waiter_orders" style="font-size: 16px;"></h4>
+                            <div id="waiter_orders_chart" style="height: 303px; margin-bottom: 10px;">
+
+                            </div>
+
+
+                    </div>
+
+                </div> 
+                <div class="col-sm-12" style="margin-top: 20px;">
+                    <div class="card-box">
+                            <h4 class="text-dark header-title m-t-0"id="kitchen_orders_heading" style="font-size: 16px;"></h4>
+                            <div id="kitchen_orders_chart" style="height: 303px; margin-bottom: 10px;">
+                                
+
+                            </div>
+
+
+                    </div>
+
+                </div>
+                
+                <div>
+                    <form id="tax-form" class="form-inline mt-3">
+                           
+                        <label class="col-md-1" for="exampleFormControlInput1">Enter Tax</label>                       
+                        <input class="ml-3" type="number" id="tax" placeholder="Enter tax" name="tax" required>                              
+                        <label class="ml-2">%</label>
+                        <button class="btn btn-primary ml-3" id="tax-btn" type="submit">Submit</button>
+                      </form>
+                    </div>
+    
+                    <div>
+                        <form id="points-form" class="form-inline mt-3">
+                               
+                            <label class="col-md-2"  for="exampleFormControlInput1">Enter Points Per Order in Percentage</label>                       
+                            <input  type="number" id="points" placeholder="10" name="points" required>                              
+                            <label class="ml-2">% per order</label>
+                            <button class="btn btn-primary ml-3" id="points-btn" type="submit">Submit</button>
+                          </form>
+                     </div>
+    
+                    <div>
+                        <form id="points-limit-form" class="form-inline mt-3">
+                                
+                            <label class="col-md-2" for="exampleFormControlInput1">Enter Limit on which the discount is valid</label>                       
+                            <input  type="number" id="limit" placeholder="5000" name="limit" required>                              
+                            <button class="btn btn-primary ml-3" id="limit-btn" type="submit">Submit</button>
+                            </form>
+                        </div>
+    
+                        <div>
+                            <form id="discount-form" class="form-inline mt-3">
+                                    
+                                <label class="col-md-2" for="exampleFormControlInput1">Enter Discount in Percentage</label>                       
+                                <input type="number" id="discount" placeholder="10" name="discount" required>                              
+                                <label class="ml-2">%</label>
+                                <button class="btn btn-primary ml-3" id="discount-btn" type="submit">Submit</button>
+                                </form>
+                            </div>
+    </div>
+
+
+</div>
+
+
+<script src="/js/dashboard_manager.js"></script>
+
+<%- include('footer'); %>

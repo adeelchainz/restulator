@@ -1,0 +1,162 @@
+<%- include('header',{role:role}); %>
+<div class="col-sm-10  " style="margin-top: 10px; ">
+
+        <div class="container">                                        
+
+        
+        <form id="supplyAddForm" method="POST" >
+
+                
+
+                <div class="form-group row">
+
+                        <div class="col-sm-2">
+                        <label for="exampleFormControlInput1">Choose Supplier </label>
+                        </div>
+                        <div class="col-sm-4">
+                                <select id="supplier_selectlist" class="form-control" required data-error="Please select Supplier">
+                                                <option value="" disabled selected>Choose supplier</option>
+                                                <!-- <option value=1>Meat</option>
+                                                <option value="2">Vegetable </option>
+                                                <option value="3">Grocery</option> -->
+                                </select>
+                        </div>
+                </div>
+                <div class="form-group row">
+                        <div class="col-sm-2">
+                        <label for="exampleFormControlInput1">Select Date time of Supply</label>
+                        </div>
+
+                        <div class="col-sm-4">
+                                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" id="datetimeSupply" data-target="#datetimepicker1" required/>
+                                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="form-group row">
+
+                                <div class="col-sm-2">
+                                <label for="exampleFormControlInput1">Choose Item </label>
+                                </div>
+                                <div class="col-sm-4">
+                                        <select id="items_selectlist" class="form-control" required >
+                                                        <option value="" disabled selected>Choose Existing Items</option>
+                                                        <!-- <option value=1>Meat</option>
+                                                        <option value="2">Vegetable </option>
+                                                        <option value="3">Grocery</option> -->
+                                        </select>
+                                </div>
+                                <div class="col-sm-2">
+                                        <a href="/stock-management/add-item"><span class="badge badge-info">Add New Item</span></a>                                                                
+                                </div>
+                </div>
+                <div class="form-group row">
+                        <div class="col-sm-2">
+                                <label for="exampleFormControlInput1">Enter Quantity </label>
+                        </div>
+
+                        <div class="col-sm-4">
+                                <input type="number" class="form-buttoncontrol" step=1 min="1" name="item_quantity" id="item_quantity" placeholder= "E.g 5" required>
+                        </div>                                                
+
+                </div>
+                <div class="form-group row">
+                                <div class="col-sm-2">
+                                        <label for="exampleFormControlInput1">Enter Unit Price </label>
+                                </div>
+
+                                <div class="col-sm-4">
+                                        <input type="number" class="form-buttoncontrol" step=1 min="1" name="item_unitPrice" id="item_unitPrice" placeholder= "E.g 5" required>
+                                </div>                                                
+
+                </div>  
+                <div class="form-group row">
+                                <div class="col-sm-2">
+                                        <label for="exampleFormControlInput1">Bill Amount </label>
+                                </div>
+
+                                <div class="col-sm-2">
+                                        <input type="text" class="form-buttoncontrol" name="billAmount" id="billAmount" readonly placeholder= "Click Calculate Bill Button to calculate bill amount">
+                                </div>
+                                <div class="col-sm-2">
+                                        <button type="button" class="btn btn-danger" onclick="calculateBill()">Calculate Bill</button>                                                                
+                                </div>                                                
+
+                </div>
+                <div class="form-group row">
+                                <div class="col-sm-2">
+                                        <label for="exampleFormControlInput1">Payment </label>
+                                </div>
+
+                                <div class="col-sm-4">
+                                        <input type="number" class="form-buttoncontrol" step=1 name="payment" id="payment" placeholder= "E.g 5" required>
+                                </div>                                                
+
+                </div> 
+                <div class="form-group row">
+
+                                <div class="col-sm-2">
+                                <label for="exampleFormControlInput1">Choose Payment Status </label>
+                                </div>
+                                <div class="col-sm-4">
+                                        <select id="payment_status_selectlist" class="form-control" required>
+                                                        <option value="" disabled selected>Choose Payment Status</option>
+                                                        <option value='paid'>Paid</option>
+                                                        <option value="unpaid">Unpaid </option>
+                                                        <option value="balance">Balance</option>
+                                                        <option value="due" >Due</option>
+                                        </select>
+                                </div>
+                </div>                                        
+
+
+                <div class="form-group row">
+                        <div class="col-sm offset-sm-2">
+                        <button  id="supplyAdd"  type="submit" class="btn btn-success" formmethod="POST" >Add Supply</button>
+                        </div>
+                </div>
+                <div id= "alert-success" class="alert alert-success alert-dismissible" style="display: none;" >
+                                                    
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Purse Successfully Added!</strong>
+                </div>
+                <div id= "alert-danger" class="alert alert-danger alert-dismissible" style="display: none;" >
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Purse could not be added, Check your connection and try again!</strong>
+                </div>                
+
+                
+
+
+
+
+        </form>
+
+        </div>
+
+        
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+<script src="/js/newPurse.js"> </script>
+
+<%- include('footer'); %>

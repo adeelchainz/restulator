@@ -1,0 +1,40 @@
+<%- include('header',{role:role}); %>
+<div class="col-sm-10  " style="margin-top: 10px;  ">
+
+    <div class="container" style="min-height: 1000px;">
+
+            <h5 id="dataTableHeading"></h5>
+            <div class="table-responsive">
+            <table id="cookHistoryTable" class="display" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th>Order No.</th>
+                        <th>Order At</th>
+                        <th>Served By</th>
+                        <th>Order Status</th>                        
+                        
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+            <div id="test_div"  style="display:none" data-id=<%= emp_id %>></div>
+            
+        </div>
+    </div>        
+
+
+        </div>
+        </div>
+
+
+<script src="/js/cookHistory.js"></script>
+<%- include('footer'); %>

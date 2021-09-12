@@ -1,0 +1,84 @@
+<%- include('header',{role:role}); %>						
+						
+<div class="col-sm-10" style=" margin-top: 10px; min-height: 1000px; ">
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+           <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">New Order Received</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info" data-dismiss="modal">Continue with Current Sorting</button>
+              <button id="sort" type="button" class="btn btn-primary">Sort New Order</button>
+            </div>
+          </div>
+        </div>
+        </div>
+
+
+
+        <!-- Modal when status is changed-->
+        <div class="modal fade" id="status-modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                   <div class="modal-content">
+                     <div class="modal-header">
+                       <h5 class="modal-title">Order Status Update</h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>
+                 <div class="modal-body" id="status-modal-body2">
+                   
+                 </div>
+               </div>
+             </div>
+        </div>
+
+
+
+        <!-- heading and cards -->
+        <div>
+                <h4 style="padding-left: 30px;padding-top: 30px;">Live Kitchen - Waiter</h4>
+                <h5 id="total-orders" style="color: seagreen;padding-right: 30px;text-align: right;">Total Live Orders: </h5></div>
+
+                <div class="container">
+                        <div id="accordion" class="row">
+                        </div>
+                </div>
+
+
+                <!-- modal to remove order -->
+                <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <b>Confirm Serve</b>
+                                        </div>
+                                        
+                                        <div class="modal-body" id="modal-status-body">
+                                        </div>
+                                        
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                                <a class="btn btn-danger btn-ok" id="delete-btn" style="color: seashell;">Confirm</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div id="test_div"  style="display:none" data-id=<%= emp_id %>></div>
+
+        </div>
+
+</div>
+
+<script src="/js/waiter-live-orders.js"></script>
+<link rel="stylesheet" type="text/css" href="\css\kitchen.css" />
+<%- include('footer'); %>
